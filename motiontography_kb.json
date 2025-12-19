@@ -1,0 +1,462 @@
+{
+  "kb_version": "1.0.0",
+  "last_updated_local": "2025-12-18",
+  "business": {
+    "name": "Motiontography LLC",
+    "owner_name": "Roger Mitchell",
+    "website": "https://motiontography.com/",
+    "primary_phone": "+1-757-759-8454",
+    "service_area": {
+      "region": "Hampton Roads, VA",
+      "cities_core": ["Suffolk", "Chesapeake", "Portsmouth", "Norfolk", "Virginia Beach", "Hampton", "Newport News"],
+      "outside_core_travel_fee": "1.25 USD per mile (round-trip)"
+    },
+    "studio": {
+      "city": "Suffolk, VA",
+      "address": "109 Abbey Rd, Suffolk, VA",
+      "address_sharing_rule": "Do not share the exact address until AFTER the client has booked and paid the retainer (or paid in full). You may say: 'Studio in Suffolk, VA.'",
+      "appointments_only": true,
+      "bathroom_available": true,
+      "private_changing_area_available": true,
+      "parking_notes": "Parking is generally easy. Please avoid bringing multiple cars when possible (2 cars ideal; 3 max)."
+    },
+    "communication_channels": {
+      "allowed": ["text", "phone_calls", "email", "instagram_dm"],
+      "preferred_short_answer": "Text and phone calls are welcome."
+    }
+  },
+  "official_pages": {
+    "booking_page_url": "https://motiontography.com/booking.html",
+    "editing_examples_url": "https://motiontography.com/editing-examples.html",
+    "composites_info_url": "https://motiontography.com/composites.html",
+    "contact_page_url": "https://motiontography.com/contact.html"
+  },
+  "square_booking_links": {
+    "mini_studio_portrait": "https://app.squareup.com/appointments/buyer/widget/vxgrl1jt3cjdoj/AJ3EW0S0Z46MH",
+    "classic_portrait": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/vxgrl1jt3cjdoj/AJ3EW0S0Z46MH",
+      "on_location": "https://app.squareup.com/appointments/buyer/widget/rkj56nt9ccke9a/AJ3EW0S0Z46MH"
+    },
+    "deluxe_portrait": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/vxgrl1jt3cjdoj/AJ3EW0S0Z46MH",
+      "on_location": "https://app.squareup.com/appointments/buyer/widget/edavdw721us1wb/AJ3EW0S0Z46MH"
+    },
+    "signature_fine_art": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/vxgrl1jt3cjdoj/AJ3EW0S0Z46MH",
+      "on_location": "https://app.squareup.com/appointments/buyer/widget/hdmj8415pzehfu/AJ3EW0S0Z46MH"
+    },
+    "maternity_signature": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/a94ut357bnqq3g/AJ3EW0S0Z46MH",
+      "on_location": "https://app.squareup.com/appointments/buyer/widget/cmkmvet52g2cad/AJ3EW0S0Z46MH"
+    },
+    "composite_creation_session": "https://app.squareup.com/appointments/buyer/widget/dw8knou1sxaac0/AJ3EW0S0Z46MH",
+    "milk_bath_session": "https://app.squareup.com/appointments/buyer/widget/50ohuubrs7twbe/AJ3EW0S0Z46MH",
+    "newborn_lifestyle": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/tjfvtxkcxx5dfr/AJ3EW0S0Z46MH",
+      "in_home_or_location": "https://app.squareup.com/appointments/buyer/widget/s1ds5yp8awi6du/AJ3EW0S0Z46MH"
+    },
+    "newborn_fine_art": "https://app.squareup.com/appointments/buyer/widget/2e94bv5ysssefm/AJ3EW0S0Z46MH",
+    "kids_little_moments_mini": "https://app.squareup.com/appointments/buyer/widget/ajhgs0nzevsgxm/AJ3EW0S0Z46MH",
+    "kids_playtime_portrait": {
+      "studio": "https://app.squareup.com/appointments/buyer/widget/6is1h4534umlmy/AJ3EW0S0Z46MH",
+      "on_location": "https://app.squareup.com/appointments/buyer/widget/21csjrt0w55tpi/AJ3EW0S0Z46MH"
+    },
+    "milestone_storybook_bundle": "https://app.squareup.com/appointments/buyer/widget/xb5xo27h6hc78e/AJ3EW0S0Z46MH",
+    "event_coverage_photography": {
+      "pay_250_retainer": "https://app.squareup.com/appointments/buyer/widget/7ci7uo7rywkkgh/AJ3EW0S0Z46MH",
+      "pay_950_full": "https://app.squareup.com/appointments/buyer/widget/9pqpob6my95bje/AJ3EW0S0Z46MH"
+    },
+    "pay_100_retainer": "https://app.squareup.com/appointments/buyer/widget/38ng3en7ojk3fb/AJ3EW0S0Z46MH",
+    "custom_booking_builder": "https://app.squareup.com/appointments/buyer/widget/i4huflm6ctnmzc/AJ3EW0S0Z46MH"
+  },
+  "editing_levels": {
+    "standard": {
+      "summary_focus": "Polished & Natural.",
+      "includes": ["color_correction", "skin_smoothing", "light_blemish_touch_up", "teeth_whitening_and_eye_brightening", "exposure_balancing"],
+      "not_included_by_default": ["body_contouring", "complex_object_removal", "background_replacement", "fantasy_elements"]
+    },
+    "advanced": {
+      "summary_focus": "Magazine-Quality Refinement.",
+      "includes_everything_in_standard": true,
+      "additional_includes": ["high_end_texture_retouching", "optional_body_contouring", "stretch_mark_reduction_on_request", "complex_object_removal"]
+    },
+    "creative_composite": {
+      "summary_focus": "Unique Photographic Artwork.",
+      "includes_everything_in_advanced": true,
+      "additional_includes": ["background_replacements", "digital_elements_fantasy_style", "painterly_effects_and_blending", "custom_lighting_and_color_grading"]
+    }
+  },
+  "add_ons": {
+    "extra_standard_image_usd": 20,
+    "extra_advanced_image_usd": 30,
+    "creative_composite_add_on_usd": 60,
+    "rush_turnaround_usd": 100,
+    "extra_person_fee_usd": 40,
+    "rush_turnaround_definition": "Final edited images delivered within 48 hours of the client sending their final selection list."
+  },
+  "packages": [
+    {
+      "id": "mini_studio_portrait",
+      "name": "Mini Studio Portrait",
+      "price_usd": 199,
+      "duration_minutes": 30,
+      "location_options": ["studio_only"],
+      "included_people": 1,
+      "outfits": "1 outfit",
+      "backdrops": "1 simple backdrop",
+      "included_final_images": 2,
+      "included_edit_level": "standard",
+      "turnaround_finals_days": 2,
+      "notes": ["No composite add-ons for this mini session.", "Private proofing gallery."]
+    },
+    {
+      "id": "classic_portrait",
+      "name": "Classic Portrait",
+      "price_usd": { "studio": 250, "on_location": 400 },
+      "duration_minutes": 60,
+      "location_options": ["studio", "on_location"],
+      "included_people": 1,
+      "extra_people_policy": "Allowed for an extra fee per person once the included headcount is exceeded.",
+      "included_final_images": 5,
+      "included_edit_level": "standard",
+      "turnaround_finals_days": 5,
+      "notes": ["On-location price includes travel within the 7 Cities."]
+    },
+    {
+      "id": "deluxe_portrait",
+      "name": "Deluxe Portrait",
+      "price_usd": { "studio": 400, "on_location": 550 },
+      "duration_minutes": 120,
+      "location_options": ["studio", "on_location"],
+      "included_people": { "studio": 4, "on_location": 6 },
+      "included_final_images": 10,
+      "included_edit_level": "standard",
+      "turnaround_finals_days": 5,
+      "notes": []
+    },
+    {
+      "id": "signature_fine_art",
+      "name": "Signature Fine-Art",
+      "price_usd": { "studio": 600, "on_location": 750 },
+      "duration_minutes": 180,
+      "location_options": ["studio", "on_location"],
+      "included_people": "Varies by concept; confirm during consult.",
+      "included_final_images": 15,
+      "included_edit_level": "advanced",
+      "turnaround_finals_days": 7,
+      "notes": ["Includes unedited proofs (optional)."]
+    },
+    {
+      "id": "maternity_signature",
+      "name": "Maternity Signature",
+      "price_usd": { "studio": 750, "on_location": 900 },
+      "duration_minutes": 180,
+      "location_options": ["studio", "on_location"],
+      "included_people": "Partner and siblings included.",
+      "included_final_images": 15,
+      "included_breakdown": { "advanced_images": 11, "composite_images": 4 },
+      "included_edit_level": "mixed_advanced_and_composite",
+      "turnaround_finals_days": 10,
+      "notes": ["Tulle maternity robes included.", "Golden hour/sunset scheduling for on-location.", "Includes unedited proofs."]
+    },
+    {
+      "id": "composite_creation_session",
+      "name": "Composite Creation Session",
+      "price_usd": 350,
+      "duration_minutes": 90,
+      "location_options": ["studio_only"],
+      "included_final_images": 2,
+      "included_edit_level": "creative_composite",
+      "turnaround_finals_days": 5,
+      "notes": ["Dedicated session planned for the final concept.", "Extra composite images available at add-on rate."]
+    },
+    {
+      "id": "milk_bath_session",
+      "name": "Milk Bath Session",
+      "price_usd": 300,
+      "duration_minutes": 120,
+      "location_options": ["studio_only"],
+      "included_final_images": 6,
+      "included_edit_level": "standard",
+      "turnaround_finals_days_range": [5, 7],
+      "notes": ["Soft, dreamy milk bath images with floral styling."]
+    },
+    {
+      "id": "newborn_lifestyle",
+      "name": "Newborn Lifestyle",
+      "price_usd": { "studio": 450, "in_home_or_location": 600 },
+      "duration_minutes": 90,
+      "location_options": ["studio", "in_home_or_location"],
+      "included_people": "Parents & siblings included.",
+      "included_final_images": 20,
+      "included_edit_level": "standard",
+      "turnaround_finals_days": 7,
+      "notes": ["Baby up to 8 weeks old."]
+    },
+    {
+      "id": "newborn_fine_art",
+      "name": "Newborn Fine-Art",
+      "price_usd": 650,
+      "duration_minutes_range": [150, 180],
+      "location_options": ["studio_only"],
+      "included_people": "Family/sibling add-ons included.",
+      "included_final_images": 15,
+      "included_edit_level": "advanced",
+      "turnaround_finals_days": 10,
+      "notes": ["Ideal age: 5–14 days.", "Includes unedited proofs (optional)."]
+    },
+    {
+      "id": "kids_little_moments_mini",
+      "name": "Little Moments Mini (Kids)",
+      "price_usd": 325,
+      "duration_minutes_range": [30, 35],
+      "location_options": ["studio_only"],
+      "included_people": "1 child (parent may join for 1–2 poses).",
+      "included_final_images": 4,
+      "included_edit_level": "standard",
+      "turnaround_finals_days_range": [5, 7],
+      "notes": ["Max 2 extra images allowed at add-on rate."]
+    },
+    {
+      "id": "kids_playtime_portrait",
+      "name": "Playtime Portrait",
+      "price_usd": { "studio": 450, "on_location": 600 },
+      "duration_minutes_range": [60, 75],
+      "location_options": ["studio", "on_location"],
+      "included_people": "Parent & sibling welcome.",
+      "included_final_images": 8,
+      "included_edit_level": "standard",
+      "included_bonus": ["includes_1_creative_composite"],
+      "notes": ["On-location includes travel within the 7 Cities."]
+    },
+    {
+      "id": "milestone_storybook_bundle",
+      "name": "Milestone Storybook Bundle",
+      "price_usd": 800,
+      "sessions_included": 3,
+      "duration_minutes_per_session_range": [30, 35],
+      "location_options": ["studio_only"],
+      "included_final_images_per_session": 6,
+      "included_edit_level": "standard",
+      "included_bonus": ["includes_1_creative_composite_per_session"],
+      "notes": ["Use within 12 months."]
+    },
+    {
+      "id": "event_coverage_photography",
+      "name": "Event Coverage (Photography)",
+      "price_usd": 950,
+      "duration_hours": 4,
+      "location_options": ["on_location_only"],
+      "included_images_policy": "All images receive standard edits, plus 25 enhanced edits.",
+      "included_bonus": ["5_sneak_peek_edits_48hr"],
+      "notes": ["Event Coverage uses a separate retainer policy."]
+    }
+  ],
+  "booking_policies": {
+    "retainers": {
+      "standard_sessions_retainer_usd": 100,
+      "event_retainer_usd": 250,
+      "retainer_applies_to_total": true,
+      "retainer_refundable": false
+    },
+    "rescheduling": {
+      "allowed": true,
+      "limit_times": 1,
+      "must_request_at_least_days_before_session": 3,
+      "new_session_must_be_within_days": 60,
+      "after_60_days_policy": "If the rescheduled date is beyond 60 days, the retainer is forfeited and a new retainer is required to book again."
+    },
+    "cancellations": {
+      "cancel_within_days_of_session_forfeits_retainer": 3,
+      "paid_in_full_refund_rule": "If paid in full and cancel, refund is issued minus the $100 cancellation fee/retainer."
+    },
+    "no_show": {
+      "definition": "Client does not arrive and does not contact Motiontography.",
+      "policy": "All payments made are forfeited and a new retainer is required to book again."
+    },
+    "weather": {
+      "policy": "If weather prevents the session, we can reschedule without penalties. For on-location sessions, the client may choose to switch to studio if preferred."
+    },
+    "proof_gallery": {
+      "delivery_window_hours": 24,
+      "selection_window_months": 12,
+      "selection_submission_rule": "Client must send ONE message (text/email/DM) with the full list of selected file names. Do not send one-by-one messages."
+    },
+    "file_types": {
+      "unedited_delivery_format": "JPEG",
+      "camera_raw_default": "Not delivered by default.",
+      "raw_by_request_policy": "If a client requests camera RAW files, the client must provide their own storage drive. Motiontography will transfer the RAW files to the drive; transfer time may take up to ~2 hours depending on volume."
+    }
+  },
+  "client_experience_guidelines": {
+    "entourage_recommendation": "Because the studio is small, keep your support group around 3 people when possible.",
+    "hair_and_makeup": "Not provided. If you want recommendations, contact Roger directly.",
+    "pets": "Allowed only if the pet is part of the shoot and someone is available to monitor the pet.",
+    "split_session_rule": "Studio + On-Location cannot be split into one session. If client wants both, they must book two separate sessions.",
+    "extra_people_fee_rule": "Extra people fee applies only when the client exceeds the included headcount in their package."
+  },
+  "tone_and_messaging_rules": {
+    "language": "en",
+    "friendly": true,
+    "congratulations": {
+      "maternity": {
+        "enabled": true,
+        "script": "Wow! Congratulations 😊 When is your due date?",
+        "follow_up_questions": ["Is there anything specific you'd love to do for your maternity session?"]
+      },
+      "special_occasion": {
+        "enabled": true,
+        "examples": ["birthday", "graduation", "baby_shower", "anniversary"],
+        "script": "Ahhh nice — congratulations on your special occasion 😊 What are we celebrating, and what date is it?"
+      }
+    }
+  },
+  "bot_guardrails": {
+    "no_hallucination_rule": "If the answer is not explicitly supported by this KB, the bot must say it will connect the client with Roger and log the question as NEW_FAQ_CANDIDATE.",
+    "escalation_contact": {
+      "phone": "+1-757-759-8454",
+      "instruction": "If anything is urgent, time-sensitive, or not covered here, contact Roger directly."
+    },
+    "privacy_and_data_minimization": {
+      "collect_only_what_client_voluntarily_provides": true,
+      "do_not_collect_payment_details": true,
+      "do_not_collect_sensitive_personal_data": true,
+      "subtle_info_gathering_allowed_fields": ["first_name", "session_type", "session_date_preference", "city", "studio_or_location", "budget_range", "edit_level_preference", "contact_method"]
+    }
+  },
+  "learning_and_review_workflow": {
+    "log_every_conversation": true,
+    "store_transcript_fields": ["timestamp", "channel", "client_handle_or_number_if_provided", "messages", "detected_intent", "packages_recommended", "links_shared", "escalated_to_roger"],
+    "new_faq_queue": {
+      "enabled": true,
+      "queue_name": "NEW_FAQ_CANDIDATES",
+      "store_when": ["bot_unsure", "client_unhappy", "policy_edge_case", "new_request_type"],
+      "required_fields": ["question", "context", "client_contact_if_provided", "bot_reply_used", "recommended_next_answer_draft"]
+    }
+  },
+  "intents_and_answers": [
+    {
+      "id": "availability_check",
+      "intent": "availability",
+      "triggers": ["are you available", "availability", "what dates do you have", "next week", "soon", "this weekend"],
+      "answer": "Yes — the fastest way is to use the live booking calendar (it's always up to date). Tell me the package you want (or your session type + studio/on-location + how long), and I'll send the exact booking button. You can also check dates directly here: https://motiontography.com/booking.html",
+      "followups": ["What type of session is it?", "Studio or On-Location?", "About how long do you want (30 / 60 / 120 / 180 minutes)?", "Do you want Standard, Advanced, or Composites?"]
+    },
+    {
+      "id": "package_confused_router",
+      "intent": "package_selection_help",
+      "triggers": ["which package", "confused", "help me pick", "not sure what to book"],
+      "answer": "No worries — I'll make it easy. Answer these 4 quick questions and I'll recommend the best fit (and send the exact booking button): 1) What type of session is it? 2) Studio or On-Location? 3) About how long do you want (30 / 60 / 120 / 180 mins)? 4) Do you want Standard, Advanced, or Composites?",
+      "followups": ["What type of session is it?", "Studio or On-Location?", "30/60/120/180 minutes?", "Standard, Advanced, or Composites?"]
+    },
+    {
+      "id": "maternity_how_to_book",
+      "intent": "maternity_booking",
+      "triggers": ["maternity", "pregnant", "due date", "expecting", "baby bump"],
+      "answer": "Wow! Congratulations 😊 When is your due date? For booking: open the booking page and choose 'Maternity Signature' (Studio or On-Location). What makes the maternity package special isn't just time — it also includes higher-level edits: 15 images total (11 Advanced + 4 Composites), plus unedited proofs. Want Studio or On-Location?",
+      "route": {
+        "studio_link": "https://app.squareup.com/appointments/buyer/widget/a94ut357bnqq3g/AJ3EW0S0Z46MH",
+        "on_location_link": "https://app.squareup.com/appointments/buyer/widget/cmkmvet52g2cad/AJ3EW0S0Z46MH"
+      }
+    },
+    {
+      "id": "maternity_under_400",
+      "intent": "maternity_budget_under_400",
+      "triggers": ["under 400", "maternity under", "cheaper maternity", "budget maternity"],
+      "answer": "Yes — you can use almost any package for maternity. The big differences are time and edit level (Standard vs Advanced vs Composites). If you want maternity under $400, I usually recommend Classic (1 hour) or Deluxe (2 hours) in-studio. You'll still get beautiful maternity photos — and you can upgrade later with add-ons (Advanced images, or Composite add-ons). Want me to recommend the best fit? Tell me: Studio or On-Location, how long (30/60/120/180 mins), and whether you want Standard, Advanced, or Composites."
+    },
+    {
+      "id": "editing_levels_explained",
+      "intent": "editing_levels",
+      "triggers": ["standard edits", "advanced edits", "difference", "what is a composite", "editing levels"],
+      "answer": "Great question — here's the simple breakdown: Standard Editing = polished & natural (color correction, skin smoothing, light blemish cleanup, teeth/eyes, exposure). Advanced Editing = everything in Standard PLUS high-end texture work, optional body contouring, stretch mark reduction (by request), and complex object removal. Creative Composite = everything in Advanced PLUS background replacement and artistic elements to create a full scene. You can also see before/after examples here: https://motiontography.com/editing-examples.html"
+    },
+    {
+      "id": "proof_gallery_and_turnaround",
+      "intent": "turnaround_and_proofs",
+      "triggers": ["how long", "turnaround", "when do i get", "proofs", "gallery", "unedited"],
+      "answer": "You'll receive your proof gallery within 24 hours. Final turnaround depends on the package you book (each package lists its estimate on the booking page). Once you choose your finals, please send ONE message with your full list of file names (text/email/DM is fine). Your gallery stays available for 12 months."
+    },
+    {
+      "id": "raw_images",
+      "intent": "raw_files",
+      "triggers": ["raw images", "raw files", "do i get the raw", "unedited files"],
+      "answer": "You'll get the unedited files as JPEGs in your private gallery (downloadable). Camera RAW files are not delivered by default, but if you need the RAW data you can provide a storage drive and we can transfer the RAW files to it."
+    },
+    {
+      "id": "cancellation_policy",
+      "intent": "cancellation_reschedule",
+      "triggers": ["cancel", "cancellation policy", "refund", "reschedule", "retainer", "deposit"],
+      "answer": "Cancellations made within 3 days of your session forfeit the $100 retainer. If you paid in full and cancel, you receive a refund minus the $100 cancellation fee. Rescheduling is allowed one time if done at least 3 days before your session, and the new session must occur within 60 days."
+    },
+    {
+      "id": "late_arrival",
+      "intent": "late_policy",
+      "triggers": ["late", "running late", "makeup ran long", "push back", "move the time"],
+      "answer": "If you think you'll be late, please let us know ASAP. If we can adjust, we'll try — but it depends on the schedule after you. If you arrive late, the session time may be reduced, and we'll either work with the remaining time or discuss rescheduling (if allowed by the policy)."
+    },
+    {
+      "id": "split_session_studio_location",
+      "intent": "split_session",
+      "triggers": ["split", "half studio half location", "studio and outside", "both studio and on location"],
+      "answer": "We don't split one booking between studio and on-location because travel/setup time would eat up your shoot time. If you want both studio and on-location, you'll need two separate sessions so you get the best experience (no rushing)."
+    },
+    {
+      "id": "extra_people_fee",
+      "intent": "extra_people",
+      "triggers": ["extra people", "more people", "add person", "headcount", "family of"],
+      "answer": "Totally doable. Packages include a certain number of people — if you exceed the included headcount, it's $40 per extra person. How many people are you hoping to include, and which package were you looking at?"
+    },
+    {
+      "id": "hair_makeup",
+      "intent": "hair_makeup",
+      "triggers": ["hair and makeup", "makeup artist", "do you provide makeup", "stylist"],
+      "answer": "Hair and makeup are not provided. If you want recommendations, contact Roger and he can share options based on the style you're going for."
+    },
+    {
+      "id": "prints",
+      "intent": "prints_albums",
+      "triggers": ["prints", "albums", "can i order prints", "do you sell prints"],
+      "answer": "You can download your images directly from your gallery. If your gallery offers print ordering, that print ordering is handled through a third-party service (not Motiontography). For any print order issues, you'll contact the print provider directly."
+    },
+    {
+      "id": "boudoir_posting_permission",
+      "intent": "posting_permission",
+      "triggers": ["post my photos", "share my photos", "do you post", "privacy", "boudoir"],
+      "answer": "We will not post revealing images without your permission. For boudoir, we only share if the client gives clear permission."
+    },
+    {
+      "id": "pet_policy",
+      "intent": "pets",
+      "triggers": ["can i bring my dog", "pet", "bring my cat", "animal"],
+      "answer": "If the pet is part of the photos, yes — as long as someone is there to monitor them. If the pet isn't part of the shoot, it may be a distraction in a small studio."
+    },
+    {
+      "id": "rush_edits",
+      "intent": "rush",
+      "triggers": ["rush", "need fast", "48 hours", "quick turnaround"],
+      "answer": "Rush turnaround is available for a $100 fee. Rush finals are delivered within 48 hours after you send your final selection list."
+    },
+    {
+      "id": "gift_cards",
+      "intent": "gift_cards",
+      "triggers": [
+        "gift card",
+        "gift cards",
+        "giftcard",
+        "gift-card",
+        "gift certificate",
+        "gift certificates",
+        "voucher",
+        "gift voucher",
+        "e gift",
+        "e-gift"
+      ],
+      "answer": "I don't want to guess and give you the wrong info. Please contact Roger directly at +1-757-759-8454 (call/text), or use the contact page: https://motiontography.com/contact.html.",
+      "followups": [
+        "Is this for a specific session type (maternity, portrait, boudoir, etc.)?",
+        "What amount did you have in mind?"
+      ]
+    }
+  ]
+}
