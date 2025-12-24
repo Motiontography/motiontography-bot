@@ -581,6 +581,34 @@
         "Where is your preferred location?",
         "What type of session are you interested in?"
       ]
+    },
+    {
+      "id": "young_children_policy",
+      "intent": "children_in_short_sessions",
+      "triggers": [
+        "kids",
+        "child",
+        "children",
+        "toddler",
+        "young child",
+        "bring my kid",
+        "bring my child",
+        "mini session with kids",
+        "one hour with kids",
+        "session with toddler",
+        "3 year old",
+        "4 year old",
+        "5 year old",
+        "6 year old",
+        "7 year old",
+        "little one",
+        "young ones"
+      ],
+      "answer": "Thanks for asking! For Mini Sessions (30 min) and Classic 1-Hour Sessions, we recommend children be at least 8 years old. Younger children often need more time to warm up, follow posing directions, and feel comfortable — and we want to make sure you get the best results! For families with younger kids, we recommend our longer sessions (Deluxe 2-Hour or Signature 3-Hour) which give us the flexibility to work at their pace. If you do book a shorter session with a child under 8, please note that the session time is fixed — we can't extend it if things take longer, and refunds aren't available if the child isn't cooperative. We want you to have an amazing experience, so feel free to contact Roger to discuss which session would work best for your family: +1-757-759-8454",
+      "followups": [
+        "How old is your child?",
+        "Would you like me to share info on our longer session options?"
+      ]
     }
   ]
 }
