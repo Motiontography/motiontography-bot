@@ -916,6 +916,58 @@
         "Would you like to schedule a consultation to discuss your vision?",
         "Do you have any questions about the process?"
       ]
+    },
+    {
+      "id": "product_photography",
+      "intent": "product_details",
+      "triggers": [
+        "product photography",
+        "product photos",
+        "product shoot",
+        "e-commerce",
+        "ecommerce",
+        "amazon photos",
+        "etsy photos",
+        "sell online",
+        "product images",
+        "merchandise",
+        "product listing",
+        "commercial photography",
+        "product shots"
+      ],
+      "answer": "Yes! Motiontography offers professional product photography for e-commerce, Amazon, Etsy, and marketing materials. We photograph jewelry, cosmetics, apparel, food, electronics, and more. Sessions are done in our Suffolk studio with professional lighting for clean, high-quality images that make your products stand out. Contact Roger to discuss your product photography needs and get a custom quote: +1-757-759-8454 or visit https://motiontography.com/contact.html",
+      "followups": [
+        "What type of products do you need photographed?",
+        "How many products do you have?",
+        "Is this for e-commerce, Amazon, or marketing materials?"
+      ]
+    },
+    {
+      "id": "seasonal_holiday",
+      "intent": "holiday_sessions",
+      "triggers": [
+        "holiday photos",
+        "christmas photos",
+        "christmas session",
+        "holiday session",
+        "seasonal photos",
+        "valentine's day",
+        "easter photos",
+        "halloween photos",
+        "thanksgiving photos",
+        "fall photos",
+        "spring photos",
+        "summer photos",
+        "winter photos",
+        "holiday mini",
+        "holiday portraits"
+      ],
+      "answer": "Yes! Motiontography offers seasonal and holiday sessions throughout the year. These are perfect for Christmas cards, Valentine's Day, Easter, Halloween, and other special occasions. Our Mini Studio Portrait ($199, 30 min, 2 images) or Classic Portrait ($250, 1 hour, 5 images) work great for holiday photos. We can incorporate seasonal props and backdrops. Book early as holiday slots fill up fast! Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Which holiday or season are you looking for?",
+        "Studio or on-location?",
+        "How many people will be in the photos?"
+      ]
     }
   ]
 }
