@@ -896,6 +896,26 @@
       "followups": [
         "What day/time works best for you?"
       ]
+    },
+    {
+      "id": "nude_photography",
+      "intent": "nude_sessions",
+      "triggers": [
+        "nude",
+        "nude photography",
+        "nude shoot",
+        "nude photos",
+        "naked",
+        "artistic nude",
+        "implied nude",
+        "full nude",
+        "without clothes"
+      ],
+      "answer": "Yes, we do offer nude and artistic nude photography. These sessions are conducted in our private Suffolk studio with complete professionalism and discretion. Your privacy is 100% protected — no images are ever shared without your explicit written consent. Contact Roger directly to discuss your vision and comfort level: +1-757-759-8454",
+      "followups": [
+        "Would you like to schedule a consultation to discuss your vision?",
+        "Do you have any questions about the process?"
+      ]
     }
   ]
 }
