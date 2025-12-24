@@ -1,35 +1,113 @@
 {
-  "kb_version": "1.0.0",
-  "last_updated_local": "2025-12-18",
+  "kb_version": "2.0.0",
+  "last_updated_local": "2025-12-24",
   "business": {
     "name": "Motiontography LLC",
     "owner_name": "Roger Mitchell",
+    "owner_background": "Award-winning photographer with 10+ years experience. Started at age 16 after saving money from a gas station job to buy first camera. Has photographed notable clients including Ari Lennox, SWV members, Clipse members, K. Michelle, Tim Reid, and Daphne Maxwell Reid.",
+    "equipment": ["Sony A1", "Hasselblad X2D", "Sony A7S III"],
     "website": "https://motiontography.com/",
     "primary_phone": "+1-757-759-8454",
+    "hours": "9:00 AM - 11:00 PM, 7 days a week",
+    "rating": "5.0 stars (36+ reviews)",
     "service_area": {
       "region": "Hampton Roads, VA",
       "cities_core": ["Suffolk", "Chesapeake", "Portsmouth", "Norfolk", "Virginia Beach", "Hampton", "Newport News"],
+      "also_serves": ["Williamsburg"],
       "outside_core_travel_fee": "1.25 USD per mile (round-trip)"
     },
     "studio": {
       "city": "Suffolk, VA",
-      "address": "109 Abbey Rd, Suffolk, VA",
+      "address": "109 Abbey Rd, Suffolk, VA 23434",
       "address_sharing_rule": "Do not share the exact address until AFTER the client has booked and paid the retainer (or paid in full). You may say: 'Studio in Suffolk, VA.'",
       "appointments_only": true,
       "bathroom_available": true,
       "private_changing_area_available": true,
-      "parking_notes": "Parking is generally easy. Please avoid bringing multiple cars when possible (2 cars ideal; 3 max)."
+      "parking_notes": "Parking is generally easy. Please avoid bringing multiple cars when possible (2 cars ideal; 3 max).",
+      "safe_comfortable_environment": true
     },
     "communication_channels": {
       "allowed": ["text", "phone_calls", "email", "instagram_dm"],
-      "preferred_short_answer": "Text and phone calls are welcome."
-    }
+      "preferred_short_answer": "Text and phone calls are welcome.",
+      "social_media": ["Instagram", "Facebook", "YouTube", "LinkedIn"]
+    },
+    "services_offered": [
+      "Fine art maternity photography",
+      "Boudoir photography",
+      "Boudoir videography",
+      "Wedding photography",
+      "Wedding videography",
+      "Headshot photography (corporate & acting)",
+      "On-location portrait sessions",
+      "Creative composite/digital art",
+      "Newborn photography",
+      "Kids/children photography",
+      "Milestone sessions",
+      "Milk bath sessions",
+      "Event coverage photography",
+      "Event coverage videography",
+      "Product photography",
+      "Seasonal/holiday sessions"
+    ],
+    "price_range": "$199 - $5,500"
   },
   "official_pages": {
     "booking_page_url": "https://motiontography.com/booking.html",
     "editing_examples_url": "https://motiontography.com/editing-examples.html",
     "composites_info_url": "https://motiontography.com/composites.html",
-    "contact_page_url": "https://motiontography.com/contact.html"
+    "contact_page_url": "https://motiontography.com/contact.html",
+    "maternity_page_url": "https://motiontography.com/maternity.html",
+    "boudoir_page_url": "https://motiontography.com/boudoir.html",
+    "wedding_page_url": "https://motiontography.com/wedding.html",
+    "on_location_page_url": "https://motiontography.com/onlocation.html",
+    "about_page_url": "https://motiontography.com/about.html",
+    "portfolio_page_url": "https://motiontography.com/portfolio.html"
+  },
+  "wedding_packages": {
+    "wedding_day_photography": {
+      "price_usd": 3500,
+      "hours": "up to 10 hours",
+      "includes": ["Getting ready through reception", "Ceremony coverage", "Couple portraits", "Family formals", "Reception highlights and details", "Professional editing", "Private online gallery with downloads and print release"],
+      "turnaround_days": 14,
+      "deposit_usd": 500,
+      "deposit_note": "Non-refundable, secures your date",
+      "balance_due": "2 weeks before wedding"
+    },
+    "pre_wedding_studio_session": {
+      "price_usd": 600,
+      "duration_hours": 3,
+      "includes": ["15 fully retouched images", "Multiple outfits and backdrops", "Magazine-style fine-art portraits"],
+      "turnaround_days": 7
+    },
+    "wedding_videography": {
+      "price_usd": 5500,
+      "note": "Photography and videography are separate, dedicated services"
+    },
+    "add_ons": {
+      "signature_fine_art_portrait_on_location_usd": 750,
+      "additional_hour_usd": 150,
+      "cultural_multi_day_coverage_per_day_usd": 1000
+    },
+    "booking_recommendation": "Book 6-12 months in advance, especially May-October"
+  },
+  "boudoir_info": {
+    "description": "Empowering, artistic sessions in a private studio",
+    "videography_available": true,
+    "videography_description": "Cinematic boudoir films capturing confidence and beauty",
+    "privacy_policy": "100% confidential. No images are shared online without explicit written consent.",
+    "wardrobe_suggestions": ["Lingerie", "Bodysuits", "Robes", "Partner's shirt", "Jewelry", "Heels"],
+    "wardrobe_note": "Wear anything that makes you feel confident and beautiful. Bring multiple outfits for variety.",
+    "experience_steps": ["1. Consultation - Private discussion about vision, wardrobe, and comfort level", "2. Styling - Receive preparation guide and expert styling recommendations", "3. The Shoot - Professional posing direction in comfortable studio setting", "4. Retouching - Natural enhancement while maintaining authenticity", "5. The Reveal - Access private digital gallery with high-resolution downloads"],
+    "preparation_tips": ["Stay hydrated and get adequate sleep", "Trust the photographer's expertise", "Bring wardrobe variety", "Communicate ideas and comfort levels during consultation"]
+  },
+  "on_location_info": {
+    "beach_locations": ["Virginia Beach Oceanfront", "Sandbridge", "First Landing State Park", "Outlook Beach"],
+    "park_locations": ["Norfolk Botanical Garden", "Red Wing Park", "Oak Grove Lake Park"],
+    "urban_locations": ["Freemason District", "NEON District Murals", "Olde Towne Portsmouth", "Downtown Suffolk"],
+    "lighting_options": ["Golden hour (sunrise/sunset) for warm, soft light", "Overcast days provide even lighting"],
+    "weather_policy": "If heavy rain or strong winds are forecast, we will reschedule at no additional cost",
+    "client_responsibilities": ["Venue admission fees for all attendees + photographer", "Required photography permits", "Private property access/permissions"],
+    "included_in_fee": ["Travel time/mileage within Hampton Roads (7 cities)", "Standard tunnel tolls and street parking", "Mobile lighting setup/breakdown"]
   },
   "square_booking_links": {
     "mini_studio_portrait": "https://app.squareup.com/appointments/buyer/widget/vxgrl1jt3cjdoj/AJ3EW0S0Z46MH",
@@ -608,6 +686,215 @@
       "followups": [
         "How old is your child?",
         "Would you like me to share info on our longer session options?"
+      ]
+    },
+    {
+      "id": "about_roger",
+      "intent": "about_photographer",
+      "triggers": [
+        "who is roger",
+        "about the photographer",
+        "about roger",
+        "who takes the photos",
+        "experience",
+        "how long have you been",
+        "background",
+        "your story"
+      ],
+      "answer": "Roger Mitchell is the owner and lead photographer at Motiontography with over 10 years of professional experience. His passion for photography started at age 16 when he saved money from a gas station job to buy his first camera. He specializes in fine art maternity, boudoir, weddings, and creative composites. Roger has photographed notable clients including Ari Lennox, members of SWV and Clipse, K. Michelle, and actors Tim Reid and Daphne Maxwell Reid. He uses professional equipment including Sony A1, Hasselblad X2D, and Sony A7S III cameras. Learn more: https://motiontography.com/about.html",
+      "followups": [
+        "What type of session are you interested in?"
+      ]
+    },
+    {
+      "id": "boudoir_info",
+      "intent": "boudoir_details",
+      "triggers": [
+        "boudoir",
+        "intimate photos",
+        "lingerie shoot",
+        "empowering",
+        "boudoir session",
+        "boudoir pricing",
+        "boudoir experience"
+      ],
+      "answer": "Boudoir sessions are empowering, artistic experiences in our private Suffolk studio. Your privacy is 100% protected — no images are shared without your explicit written consent. The experience includes: consultation, styling guidance, the shoot with professional posing direction, retouching, and a private digital gallery. You can wear lingerie, bodysuits, robes, or even a partner's shirt — anything that makes you feel confident! We also offer cinematic boudoir videography. Book here: https://motiontography.com/booking.html or see more: https://motiontography.com/boudoir.html",
+      "followups": [
+        "Would you like studio or would you prefer a different setting?",
+        "Do you have any questions about what to wear?"
+      ]
+    },
+    {
+      "id": "newborn_info",
+      "intent": "newborn_details",
+      "triggers": [
+        "newborn",
+        "baby photos",
+        "new baby",
+        "infant",
+        "baby session",
+        "newborn pricing",
+        "how old for newborn"
+      ],
+      "answer": "We offer two newborn packages: Newborn Lifestyle ($450 studio / $600 in-home, 1.5 hours, 20 images, baby up to 8 weeks) and Newborn Fine-Art ($650 studio only, 2.5-3 hours, 15 advanced images, ideal age 5-14 days with full prop & wrap collection). Parents and siblings are included in both! For Fine-Art sessions, booking early is best — ideally before baby arrives so we can schedule for that 5-14 day window. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "When is your due date?",
+        "Would you prefer lifestyle or fine-art style?"
+      ]
+    },
+    {
+      "id": "composite_info",
+      "intent": "composite_details",
+      "triggers": [
+        "composite",
+        "digital art",
+        "fantasy",
+        "background replacement",
+        "creative edit",
+        "what is a composite",
+        "floating",
+        "surreal"
+      ],
+      "answer": "Composite photography blends multiple images into a single masterpiece — think fantasy scenes, floating effects, dramatic backgrounds, and surreal artwork. The process includes: concept development with you, a photography session with precise lighting, then hours of professional editing to create a believable final image. Composites are $60 each as an add-on, or book our dedicated Composite Creation Session ($350, 1.5 hours, 2 composite images). See examples: https://motiontography.com/composites.html",
+      "followups": [
+        "Do you have a vision or theme in mind?",
+        "Would you like to see some examples?"
+      ]
+    },
+    {
+      "id": "event_coverage",
+      "intent": "event_details",
+      "triggers": [
+        "event",
+        "party",
+        "birthday party",
+        "corporate event",
+        "event photography",
+        "event videography",
+        "how much for event"
+      ],
+      "answer": "Event Coverage Photography is $950 for 4 hours of continuous coverage including candid moments, group photos, speeches, and details. You get 25 enhanced edits plus standard edits on all remaining images, 5 sneak-peek edits within 48 hours, and a private online gallery. Event Videography is also $950 for 4 hours and includes a 3-5 minute highlight reel (4-day turnaround), full event video with audio (14-day turnaround), raw footage, and wireless mics. Retainer is $250 for events. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "What type of event is it?",
+        "When is the event date?"
+      ]
+    },
+    {
+      "id": "videography_info",
+      "intent": "video_services",
+      "triggers": [
+        "video",
+        "videography",
+        "film",
+        "cinematic",
+        "do you do video",
+        "wedding video",
+        "maternity video"
+      ],
+      "answer": "Yes! Motiontography offers videography services including: Wedding Videography ($5,500), Event Videography ($950 for 4 hours with highlight reel and full event video), Boudoir Videography (cinematic boudoir films), and Maternity Videography (available as add-on). Note: Photography and videography are separate services, not bundled packages. Contact Roger to discuss your video needs: +1-757-759-8454",
+      "followups": [
+        "What type of videography are you interested in?",
+        "Do you also need photography?"
+      ]
+    },
+    {
+      "id": "headshot_info",
+      "intent": "headshot_details",
+      "triggers": [
+        "headshot",
+        "headshots",
+        "corporate photo",
+        "linkedin",
+        "professional photo",
+        "acting headshot",
+        "business photo"
+      ],
+      "answer": "We offer professional headshots for corporate, LinkedIn, acting, and personal branding. Our Mini Studio Portrait ($199, 30 min, 2 images) or Classic Portrait ($250, 1 hour, 5 images) work great for headshots. Includes professional retouching for a polished, natural look. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Is this for corporate/LinkedIn or acting?",
+        "How many final images do you need?"
+      ]
+    },
+    {
+      "id": "maternity_timing",
+      "intent": "when_to_book_maternity",
+      "triggers": [
+        "when to do maternity",
+        "how many weeks",
+        "best time for maternity",
+        "28 weeks",
+        "32 weeks",
+        "third trimester",
+        "when should i book maternity"
+      ],
+      "answer": "The ideal time for maternity photos is between 28-34 weeks of pregnancy — your bump is beautifully visible and you're still comfortable. We recommend booking 4-6 weeks in advance to secure your preferred date. The Maternity Signature package includes 3 hours, tulle robes, partner and siblings, and 15 images (11 advanced + 4 composites). Studio is $750, On-Location is $900. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "When is your due date?",
+        "Would you prefer studio or on-location?"
+      ]
+    },
+    {
+      "id": "location_suggestions",
+      "intent": "where_to_shoot",
+      "triggers": [
+        "where should we shoot",
+        "location ideas",
+        "beach session",
+        "park session",
+        "outdoor locations",
+        "best locations",
+        "where do you shoot"
+      ],
+      "answer": "Great question! Popular on-location spots include: BEACHES - Virginia Beach Oceanfront, Sandbridge, First Landing State Park, Outlook Beach. PARKS - Norfolk Botanical Garden, Red Wing Park, Oak Grove Lake Park. URBAN - Freemason District, NEON District Murals, Olde Towne Portsmouth, Downtown Suffolk. Golden hour (sunrise/sunset) gives the most beautiful light! Travel within the 7 Cities is included. If heavy rain or strong winds are forecast, we reschedule at no cost.",
+      "followups": [
+        "What vibe are you going for?",
+        "Beach, park, or urban setting?"
+      ]
+    },
+    {
+      "id": "milk_bath_info",
+      "intent": "milk_bath_details",
+      "triggers": [
+        "milk bath",
+        "milkbath",
+        "bath session",
+        "floral bath"
+      ],
+      "answer": "The Milk Bath Session is $300 for a 2-hour studio session. You'll get 6 standard edited images with a 5-7 day turnaround. These are soft, dreamy images with floral styling in a beautiful milk bath setup. It's popular for maternity but can be done for anyone! Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Is this for a maternity session or something else?"
+      ]
+    },
+    {
+      "id": "payment_plans",
+      "intent": "payment_options",
+      "triggers": [
+        "payment plan",
+        "pay later",
+        "financing",
+        "can i pay in installments",
+        "payment options"
+      ],
+      "answer": "Payment plans are available! A $100 retainer (non-refundable) secures your booking, and the balance is due on or before your session day. For weddings, the retainer is $500 with balance due 2 weeks before. Contact Roger to discuss payment arrangements for larger packages: +1-757-759-8454",
+      "followups": [
+        "What package are you interested in?"
+      ]
+    },
+    {
+      "id": "hours_availability",
+      "intent": "business_hours",
+      "triggers": [
+        "what are your hours",
+        "when are you open",
+        "hours",
+        "weekend availability",
+        "evening sessions",
+        "saturday",
+        "sunday"
+      ],
+      "answer": "Motiontography is open 9:00 AM - 11:00 PM, 7 days a week! Sessions are by appointment only. Weekend and evening sessions are available. For golden hour on-location sessions, timing depends on sunset. Book your preferred time on the calendar: https://motiontography.com/booking.html",
+      "followups": [
+        "What day/time works best for you?"
       ]
     }
   ]
