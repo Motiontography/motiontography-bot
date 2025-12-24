@@ -1084,6 +1084,124 @@
         "Studio or on-location?",
         "What type of session (maternity, portrait, boudoir)?"
       ]
+    },
+    {
+      "id": "graduation_photos",
+      "intent": "graduation_session",
+      "triggers": [
+        "graduation",
+        "graduation photos",
+        "grad photos",
+        "senior photos",
+        "senior portraits",
+        "cap and gown",
+        "graduating",
+        "college graduation",
+        "high school graduation",
+        "grad pics"
+      ],
+      "answer": "Yes! We do graduation photos! For cap and gown portraits, our Classic Portrait ($250 studio / $400 on-location, 1 hour, 5 images) is perfect. Want more variety with multiple outfits? The Deluxe Portrait ($400 studio / $550 on-location, 2 hours, 10 images) gives you more time. Congratulations on your achievement! Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "When is your graduation date?",
+        "Would you like cap and gown only, or multiple outfit changes?"
+      ]
+    },
+    {
+      "id": "family_photos",
+      "intent": "family_session",
+      "triggers": [
+        "family photos",
+        "family portrait",
+        "family session",
+        "family pictures",
+        "family shoot",
+        "whole family",
+        "family of"
+      ],
+      "answer": "Yes! Family portraits are one of our specialties. For families, we recommend: Classic Portrait ($250 studio / $400 on-location, 1 hour, 5 images) for smaller families, or Deluxe Portrait ($400 studio / $550 on-location, 2 hours, 10 images) which includes up to 4 people in-studio or 6 on-location. Extra people are $40 each. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "How many people will be in the photos?",
+        "Studio or on-location?",
+        "Any young children (under 8)?"
+      ]
+    },
+    {
+      "id": "couples_photos",
+      "intent": "couples_session",
+      "triggers": [
+        "couples photos",
+        "couples session",
+        "couple photos",
+        "couples shoot",
+        "me and my partner",
+        "me and my boyfriend",
+        "me and my girlfriend",
+        "me and my husband",
+        "me and my wife",
+        "anniversary photos",
+        "romantic photos"
+      ],
+      "answer": "Yes! Couples sessions are beautiful. Our Classic Portrait ($250 studio / $400 on-location, 1 hour, 5 images) works great for couples. For more variety and outfit changes, try the Deluxe Portrait ($400 studio / $550 on-location, 2 hours, 10 images). On-location at golden hour is especially romantic! Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "Is this for a special occasion (anniversary, engagement)?"
+      ]
+    },
+    {
+      "id": "birthday_photos",
+      "intent": "birthday_session",
+      "triggers": [
+        "birthday photos",
+        "birthday shoot",
+        "birthday session",
+        "birthday pictures",
+        "turning 30",
+        "turning 40",
+        "turning 50",
+        "milestone birthday",
+        "birthday celebration"
+      ],
+      "answer": "Happy birthday! 🎉 Birthday sessions are a great way to celebrate. For a solo birthday shoot, our Classic Portrait ($250 studio / $400 on-location, 1 hour, 5 images) is perfect. Want something more elaborate with multiple looks? Try the Signature Fine-Art ($600 studio / $750 on-location, 3 hours, 15 images). Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "Is this a solo shoot or with others?",
+        "What's the vibe you're going for?"
+      ]
+    },
+    {
+      "id": "mini_package_info",
+      "intent": "mini_details",
+      "triggers": [
+        "mini session",
+        "mini portrait",
+        "30 minute session",
+        "quick session",
+        "short session",
+        "mini package",
+        "cheapest session"
+      ],
+      "answer": "Our Mini Studio Portrait is $199 for a 30-minute session with 2 final images (standard editing). It's perfect for headshots, quick updates, or when you just need a few great shots. Studio only. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Is this for a headshot or something else?",
+        "Just yourself, or multiple people?"
+      ]
+    },
+    {
+      "id": "classic_package_info",
+      "intent": "classic_details",
+      "triggers": [
+        "classic portrait",
+        "classic package",
+        "1 hour session",
+        "one hour session",
+        "classic pricing"
+      ],
+      "answer": "The Classic Portrait is $250 (studio) or $400 (on-location) for a 1-hour session with 5 final images (standard editing). Great for individuals, couples, headshots, or small groups. On-location includes travel within the 7 Cities. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "How many people?"
+      ]
     }
   ]
 }
