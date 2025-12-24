@@ -711,12 +711,17 @@
       "intent": "boudoir_details",
       "triggers": [
         "boudoir",
+        "boudior",
+        "budoir",
         "intimate photos",
         "lingerie shoot",
         "empowering",
         "boudoir session",
         "boudoir pricing",
-        "boudoir experience"
+        "boudoir experience",
+        "boudoir photos",
+        "sexy photos",
+        "sensual photos"
       ],
       "answer": "Boudoir sessions are empowering, artistic experiences in our private Suffolk studio. Your privacy is 100% protected — no images are shared without your explicit written consent. The experience includes: consultation, styling guidance, the shoot with professional posing direction, retouching, and a private digital gallery. You can wear lingerie, bodysuits, robes, or even a partner's shirt — anything that makes you feel confident! We also offer cinematic boudoir videography. Book here: https://motiontography.com/booking.html or see more: https://motiontography.com/boudoir.html",
       "followups": [
@@ -933,7 +938,14 @@
         "merchandise",
         "product listing",
         "commercial photography",
-        "product shots"
+        "product shots",
+        "amazon listing",
+        "etsy listing",
+        "photos for amazon",
+        "photos for etsy",
+        "shoot my products",
+        "photograph my products",
+        "product pictures"
       ],
       "answer": "Yes! Motiontography offers professional product photography for e-commerce, Amazon, Etsy, and marketing materials. We photograph jewelry, cosmetics, apparel, food, electronics, and more. Sessions are done in our Suffolk studio with professional lighting for clean, high-quality images that make your products stand out. Contact Roger to discuss your product photography needs and get a custom quote: +1-757-759-8454 or visit https://motiontography.com/contact.html",
       "followups": [
@@ -960,13 +972,117 @@
         "summer photos",
         "winter photos",
         "holiday mini",
-        "holiday portraits"
+        "holiday portraits",
+        "holiday card",
+        "christmas card",
+        "holiday pictures",
+        "christmas pictures"
       ],
       "answer": "Yes! Motiontography offers seasonal and holiday sessions throughout the year. These are perfect for Christmas cards, Valentine's Day, Easter, Halloween, and other special occasions. Our Mini Studio Portrait ($199, 30 min, 2 images) or Classic Portrait ($250, 1 hour, 5 images) work great for holiday photos. We can incorporate seasonal props and backdrops. Book early as holiday slots fill up fast! Book here: https://motiontography.com/booking.html",
       "followups": [
         "Which holiday or season are you looking for?",
         "Studio or on-location?",
         "How many people will be in the photos?"
+      ]
+    },
+    {
+      "id": "studio_location",
+      "intent": "studio_address",
+      "triggers": [
+        "where is your studio",
+        "studio location",
+        "where are you located",
+        "studio address",
+        "where is the studio",
+        "location",
+        "address",
+        "where do you shoot",
+        "where is motiontography",
+        "what city"
+      ],
+      "answer": "Our studio is located in Suffolk, VA. It's a private, comfortable space with a bathroom and changing area available. Sessions are by appointment only. The exact address is provided after booking is confirmed and the retainer is paid. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "What type of session are you interested in?",
+        "Would you prefer studio or on-location?"
+      ]
+    },
+    {
+      "id": "general_pricing",
+      "intent": "pricing_overview",
+      "triggers": [
+        "how much do you charge",
+        "what are your prices",
+        "pricing",
+        "rates",
+        "how much",
+        "cost",
+        "what's your cheapest",
+        "cheapest option",
+        "affordable",
+        "budget",
+        "price list",
+        "price range"
+      ],
+      "answer": "Our sessions range from $199 to $5,500 depending on the type and length. Here's a quick overview: Mini Portrait ($199, 30 min, 2 images), Classic Portrait ($250-$400, 1 hour, 5 images), Deluxe Portrait ($400-$550, 2 hours, 10 images), Signature Fine-Art ($600-$750, 3 hours, 15 images), Maternity Signature ($750-$900, 3 hours, 15 images with composites), Weddings ($3,500+). View all packages with full details: https://motiontography.com/booking.html",
+      "followups": [
+        "What type of session are you looking for?",
+        "Studio or on-location?",
+        "How many people will be in the photos?"
+      ]
+    },
+    {
+      "id": "weather_policy",
+      "intent": "weather_rain",
+      "triggers": [
+        "what if it rains",
+        "rain",
+        "weather",
+        "bad weather",
+        "storm",
+        "rainy day",
+        "weather policy",
+        "reschedule weather",
+        "outdoor rain"
+      ],
+      "answer": "If heavy rain or strong winds are forecast for your on-location session, we will reschedule at no additional cost. You can also choose to switch to a studio session if you prefer. We monitor the weather and will reach out if conditions look unfavorable. Your session experience matters!",
+      "followups": [
+        "Is your session on-location or in the studio?",
+        "What date is your session?"
+      ]
+    },
+    {
+      "id": "deluxe_package_info",
+      "intent": "deluxe_details",
+      "triggers": [
+        "deluxe package",
+        "deluxe portrait",
+        "2 hour session",
+        "two hour session",
+        "how many photos deluxe",
+        "deluxe pricing"
+      ],
+      "answer": "The Deluxe Portrait package is $400 (studio) or $550 (on-location) for a 2-hour session. You get 10 final images with standard editing, and it includes up to 4 people in-studio or 6 people on-location. Great for families or when you want more variety! Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "How many people will be in the photos?"
+      ]
+    },
+    {
+      "id": "signature_package_info",
+      "intent": "signature_details",
+      "triggers": [
+        "signature package",
+        "signature fine art",
+        "fine art session",
+        "3 hour session",
+        "three hour session",
+        "signature pricing",
+        "what's included in signature"
+      ],
+      "answer": "The Signature Fine-Art package is $600 (studio) or $750 (on-location) for a 3-hour session. You get 15 final images with advanced editing (magazine-quality retouching). This is our most popular option for clients who want the full creative experience with multiple looks and setups. Includes unedited proofs. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Studio or on-location?",
+        "What type of session (maternity, portrait, boudoir)?"
       ]
     }
   ]
