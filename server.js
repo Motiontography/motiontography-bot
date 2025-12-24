@@ -1,7 +1,8 @@
 /**
  * Motiontography KB-Only Bot API
  * - Loads ./motiontography_kb.json as the ONLY source of truth
- * - Matches questions to intents via keyword/regex triggers
+ * - Uses OpenAI GPT-5.2 (or configured model) for intelligent intent routing
+ * - Falls back to keyword matching if OpenAI fails
  * - Returns the approved answer + optional followups + optional Square link
  * - If no match: escalates to Roger and logs to NEW_FAQ_CANDIDATES
  * - Logs every interaction with client identifiers (if provided)
@@ -14,8 +15,17 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { openAiRouteAndAnswer } = require("./lib/openai");
 
+// -------------------- Config --------------------
 const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
+const OPENAI_CONFIG = {
+  apiKey: process.env.OPENAI_API_KEY,
+  model: process.env.OPENAI_MODEL || "gpt-4o",
+  reasoningEffort: process.env.OPENAI_REASONING_EFFORT || "high",
+  textVerbosity: process.env.OPENAI_TEXT_VERBOSITY || "low",
+  maxOutputTokens: parseInt(process.env.OPENAI_MAX_OUTPUT_TOKENS, 10) || 500
+};
 
 const app = express();
 app.use(cors());
@@ -81,7 +91,7 @@ function appendJsonl(filePath, obj) {
   fs.appendFileSync(filePath, JSON.stringify(obj) + "\n", "utf8");
 }
 
-// -------------------- Matching (KB-only) --------------------
+// -------------------- Fallback Heuristic Matching (KB-only) --------------------
 function norm(s) {
   return String(s || "")
     .toLowerCase()
@@ -90,12 +100,10 @@ function norm(s) {
 }
 
 function isRegexTrigger(t) {
-  // supports "/pattern/flags" format
   return typeof t === "string" && t.startsWith("/") && t.lastIndexOf("/") > 0;
 }
 
 function compileRegex(trigger) {
-  // "/hello\\s+world/i" -> new RegExp("hello\\s+world", "i")
   const lastSlash = trigger.lastIndexOf("/");
   const pattern = trigger.slice(1, lastSlash);
   const flags = trigger.slice(lastSlash + 1) || "";
@@ -121,10 +129,8 @@ function scoreIntent(message, intent) {
     const trig = norm(t);
     if (!trig) continue;
 
-    // simple keyword scoring
     if (msg.includes(trig)) score += 2;
 
-    // multi-word partial scoring
     const words = trig.split(" ").filter(Boolean);
     if (words.length >= 2) {
       let hits = 0;
@@ -137,29 +143,23 @@ function scoreIntent(message, intent) {
 }
 
 function normalizeUrl(url) {
-  // Collapses accidental double slashes while preserving https://
   return String(url || "").replace(/([^:]\/)\/+/g, "$1");
 }
 
-function resolveRouteUrl(route) {
-  // route may be:
-  // { type: "square_package", package_id: "classic_portrait", mode: "studio"|"on_location" }
-  // OR { type: "url", url: "https://..." }
+function resolveRouteUrl(route, kb) {
   if (!route || typeof route !== "object") return null;
 
   if (route.type === "url" && route.url) return route.url;
 
   if (route.type === "square_package" && route.package_id) {
-    const entry = KB.square_booking_links?.[route.package_id];
+    const entry = kb.square_booking_links?.[route.package_id];
     if (!entry) return null;
 
-    // some entries may be a string URL, others {studio, on_location}
     if (typeof entry === "string") return entry;
 
     const mode = route.mode || "studio";
     if (entry[mode]) return entry[mode];
 
-    // fallback to any URL inside the object
     const first = Object.values(entry).find((v) => typeof v === "string");
     return first || null;
   }
@@ -167,15 +167,15 @@ function resolveRouteUrl(route) {
   return null;
 }
 
-function buildEscalationReply() {
-  const phone = KB.business?.primary_phone || "+1-757-759-8454";
-  const site = KB.business?.website || "https://motiontography.com";
+function buildEscalationReply(kb) {
+  const phone = kb.business?.primary_phone || "+1-757-759-8454";
+  const site = kb.business?.website || "https://motiontography.com";
   const contactUrl = normalizeUrl(`${site}/contact.html`);
   return `I don't want to guess and give you the wrong info. Please contact Roger directly at ${phone} (call/text), or use the contact page: ${contactUrl}`;
 }
 
-function findBestIntent(message) {
-  const intents = KB.intents_and_answers;
+function findBestIntent(message, kb) {
+  const intents = kb.intents_and_answers;
   let best = null;
   let bestScore = 0;
 
@@ -187,16 +187,14 @@ function findBestIntent(message) {
     }
   }
 
-  // threshold prevents random matches -> prevents "hallucination by matching"
   if (!best || bestScore < 2) return { intent: null, score: bestScore };
   return { intent: best, score: bestScore };
 }
 
-function formatIntentAnswer(intent) {
-  // allow answer to be string or array of strings
+function formatIntentAnswer(intent, kb) {
   const answer = intent.answer;
   const followups = intent.followups || [];
-  const routeUrl = resolveRouteUrl(intent.route);
+  const routeUrl = resolveRouteUrl(intent.route, kb);
 
   let reply = "";
   if (Array.isArray(answer)) reply = answer.filter(Boolean).join("\n\n");
@@ -211,10 +209,16 @@ function formatIntentAnswer(intent) {
 
 // -------------------- API --------------------
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true, kb_version: KB.kb_version, last_updated_local: KB.last_updated_local });
+  res.json({
+    ok: true,
+    kb_version: KB.kb_version,
+    last_updated_local: KB.last_updated_local,
+    openai_model: OPENAI_CONFIG.model,
+    openai_enabled: !!OPENAI_CONFIG.apiKey
+  });
 });
 
-app.post("/api/chat", (req, res) => {
+app.post("/api/chat", async (req, res) => {
   const startedAt = new Date().toISOString();
 
   const message = req.body?.message;
@@ -225,42 +229,92 @@ app.post("/api/chat", (req, res) => {
     return res.status(400).json({ ok: false, error: "message (string) is required" });
   }
 
-  const { intent, score } = findBestIntent(message);
-
   let response;
   let matched_intent_id = null;
+  let match_score = 0;
+  let used_openai = false;
+  let escalated = false;
+  let kb_evidence = [];
+  let links_shared = [];
 
-  if (intent) {
-    matched_intent_id = intent.id || intent.intent_id || intent.name || null;
-    response = formatIntentAnswer(intent);
+  // Try OpenAI first if configured
+  if (OPENAI_CONFIG.apiKey) {
+    try {
+      const aiResult = await openAiRouteAndAnswer(message, KB, OPENAI_CONFIG);
+      used_openai = true;
+      matched_intent_id = aiResult.intent_id;
+      match_score = aiResult.confidence;
+      escalated = aiResult.escalated;
+      kb_evidence = aiResult.kb_evidence || [];
+      links_shared = aiResult.links_shared || [];
 
-    // If somehow reply is empty, we still refuse to guess
-    if (!response.reply) {
-      response = { reply: buildEscalationReply(), followups: [], route_url: null };
-      // log as candidate
+      response = {
+        reply: aiResult.reply,
+        followups: aiResult.followups,
+        route_url: links_shared.length > 0 ? links_shared[0] : null
+      };
+
+      // If AI escalated, log to FAQ candidates
+      if (escalated) {
+        appendJsonl(FAQ_CANDIDATES_PATH(), {
+          ts: startedAt,
+          session_id,
+          client,
+          question: message,
+          reason: "AI escalated - not in KB",
+          ai_intent_id: matched_intent_id,
+          ai_confidence: match_score
+        });
+      }
+
+    } catch (err) {
+      console.error("[OpenAI Error]", err.message);
+      // Fall through to heuristic fallback
+    }
+  }
+
+  // Fallback to heuristic matching if OpenAI wasn't used or failed
+  if (!response) {
+    const { intent, score } = findBestIntent(message, KB);
+    match_score = score;
+
+    if (intent) {
+      matched_intent_id = intent.id || intent.intent_id || intent.name || null;
+      response = formatIntentAnswer(intent, KB);
+
+      if (!response.reply) {
+        response = { reply: buildEscalationReply(KB), followups: [], route_url: null };
+        escalated = true;
+        appendJsonl(FAQ_CANDIDATES_PATH(), {
+          ts: startedAt,
+          session_id,
+          client,
+          question: message,
+          reason: "Matched intent but empty answer (heuristic)",
+        });
+      }
+    } else {
+      response = { reply: buildEscalationReply(KB), followups: [], route_url: null };
+      escalated = true;
+
       appendJsonl(FAQ_CANDIDATES_PATH(), {
         ts: startedAt,
         session_id,
         client,
         question: message,
-        reason: "Matched intent but empty answer",
+        reason: "No intent match (heuristic fallback)",
+        score,
       });
     }
-  } else {
-    response = { reply: buildEscalationReply(), followups: [], route_url: null };
-
-    // log as FAQ candidate for review
-    appendJsonl(FAQ_CANDIDATES_PATH(), {
-      ts: startedAt,
-      session_id,
-      client,
-      question: message,
-      reason: "No intent match",
-      score,
-    });
   }
 
-  // Always log the transcript (as requested)
+  // Final safety: scrub any address leak from reply
+  if (response.reply) {
+    response.reply = response.reply.replace(/109\s*Abbey\s*R(oa)?d[^,]*/gi, "Studio in Suffolk, VA");
+    response.reply = response.reply.replace(/\d+\s+Abbey\s+R(oa)?d/gi, "Studio in Suffolk, VA");
+  }
+
+  // Always log the transcript
   appendJsonl(TRANSCRIPTS_PATH(), {
     ts: startedAt,
     session_id,
@@ -270,14 +324,21 @@ app.post("/api/chat", (req, res) => {
     bot_followups: response.followups,
     route_url: response.route_url,
     matched_intent_id,
-    match_score: score,
+    match_score,
+    used_openai,
+    escalated,
+    kb_evidence,
+    links_shared
   });
 
   return res.json({
     ok: true,
     session_id,
     matched_intent_id,
-    match_score: score,
+    match_score,
+    used_openai,
+    escalated,
+    kb_evidence,
     ...response,
   });
 });
@@ -287,4 +348,5 @@ const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`[motiontography-bot] running on http://localhost:${PORT}`);
   console.log(`[motiontography-bot] KB: ${path.basename(KB_PATH)} v${KB.kb_version} (${KB.last_updated_local})`);
+  console.log(`[motiontography-bot] OpenAI: ${OPENAI_CONFIG.apiKey ? `enabled (${OPENAI_CONFIG.model}, reasoning=${OPENAI_CONFIG.reasoningEffort})` : "disabled (using heuristic only)"}`);
 });

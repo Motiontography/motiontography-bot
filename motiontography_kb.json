@@ -452,10 +452,134 @@
         "e gift",
         "e-gift"
       ],
-      "answer": "I don't want to guess and give you the wrong info. Please contact Roger directly at +1-757-759-8454 (call/text), or use the contact page: https://motiontography.com/contact.html.",
+      "answer": "We don't currently offer gift cards. Please contact Roger directly at +1-757-759-8454 (call/text) if you'd like to discuss options, or use the contact page: https://motiontography.com/contact.html",
       "followups": [
         "Is this for a specific session type (maternity, portrait, boudoir, etc.)?",
         "What amount did you have in mind?"
+      ]
+    },
+    {
+      "id": "what_to_wear",
+      "intent": "wardrobe",
+      "triggers": [
+        "what should i wear",
+        "what to wear",
+        "outfit",
+        "wardrobe",
+        "clothing",
+        "dress code",
+        "what do i wear",
+        "clothes for shoot",
+        "attire"
+      ],
+      "answer": "Great question! Here are some general tips: Solid colors photograph beautifully — avoid busy patterns or large logos. Flowing fabrics add elegance, especially for maternity. For maternity sessions, we have tulle robes available at the studio. Coordinate with others in your group but don't match exactly. Feel free to bring 2-3 outfit options! Check out our wardrobe guide: https://motiontography.com/maternity-wardrobe-guide.html",
+      "followups": [
+        "What type of session are you booking?",
+        "Studio or on-location?"
+      ]
+    },
+    {
+      "id": "alcohol_policy",
+      "intent": "alcohol",
+      "triggers": [
+        "alcohol",
+        "champagne",
+        "wine",
+        "beer",
+        "drink",
+        "can i bring champagne",
+        "booze",
+        "mimosas",
+        "bring drinks"
+      ],
+      "answer": "I don't want to guess on this one — please contact Roger directly at +1-757-759-8454 (call/text) to discuss. He can let you know what's allowed for your specific session.",
+      "followups": [
+        "What type of session are you booking?"
+      ]
+    },
+    {
+      "id": "wedding_photography",
+      "intent": "wedding",
+      "triggers": [
+        "wedding",
+        "weddings",
+        "getting married",
+        "engagement",
+        "bridal",
+        "bride",
+        "groom",
+        "ceremony",
+        "reception",
+        "do you shoot weddings",
+        "wedding photographer"
+      ],
+      "answer": "Yes! Motiontography offers wedding photography. For wedding inquiries, please contact Roger directly at +1-757-759-8454 (call/text) so he can discuss your date, venue, and vision. You can also see wedding work on the website: https://motiontography.com/wedding.html",
+      "followups": [
+        "What's your wedding date?",
+        "Where is the venue located?"
+      ]
+    },
+    {
+      "id": "booking_lead_time",
+      "intent": "advance_booking",
+      "triggers": [
+        "how far in advance",
+        "advance",
+        "lead time",
+        "how early",
+        "book ahead",
+        "last minute",
+        "short notice",
+        "same week",
+        "tomorrow",
+        "asap"
+      ],
+      "answer": "We recommend booking at least 2 weeks in advance to ensure availability, especially for weekend sessions. For maternity sessions, booking 4-6 weeks ahead is ideal (around 28-32 weeks pregnant). Last-minute bookings may be possible — check the live calendar or contact Roger directly. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "What type of session are you looking for?",
+        "Do you have a preferred date in mind?"
+      ]
+    },
+    {
+      "id": "portfolio_examples",
+      "intent": "examples",
+      "triggers": [
+        "see more examples",
+        "portfolio",
+        "see your work",
+        "examples",
+        "gallery",
+        "more photos",
+        "sample work",
+        "previous work",
+        "can i see"
+      ],
+      "answer": "Absolutely! You can view our work on the website. Check out the portfolio and individual service pages for examples of maternity, boudoir, portraits, composites, and more: https://motiontography.com/portfolio.html — You can also see editing before/after examples here: https://motiontography.com/editing-examples.html",
+      "followups": [
+        "What type of photography are you most interested in?",
+        "Maternity, boudoir, portraits, or something else?"
+      ]
+    },
+    {
+      "id": "travel_outside_area",
+      "intent": "travel",
+      "triggers": [
+        "travel",
+        "outside hampton roads",
+        "richmond",
+        "dc",
+        "washington",
+        "raleigh",
+        "out of area",
+        "do you travel",
+        "how far do you travel",
+        "outside the 7 cities",
+        "williamsburg"
+      ],
+      "answer": "Yes! On-location sessions within the 7 Cities (Suffolk, Chesapeake, Portsmouth, Norfolk, Virginia Beach, Hampton, Newport News) are included in the on-location pricing. For locations outside this area, a travel fee of $1.25 per mile (round-trip) applies. Contact Roger to discuss your location: +1-757-759-8454. Book here: https://motiontography.com/booking.html",
+      "followups": [
+        "Where is your preferred location?",
+        "What type of session are you interested in?"
       ]
     }
   ]
