@@ -430,8 +430,24 @@
     {
       "id": "maternity_how_to_book",
       "intent": "maternity_booking",
-      "triggers": ["maternity", "pregnant", "due date", "expecting", "baby bump"],
-      "answer": "Wow! Congratulations 😊 When is your due date? For booking: open the booking page and choose 'Maternity Signature' (Studio or On-Location). What makes the maternity package special isn't just time — it also includes higher-level edits: 15 images total (11 Advanced + 4 Composites), plus unedited proofs. Want Studio or On-Location?",
+      "triggers": [
+        "maternity",
+        "pregnant",
+        "due date",
+        "expecting",
+        "baby bump",
+        "maternity photos",
+        "maternity session",
+        "maternity shoot",
+        "maternity pricing",
+        "maternity price",
+        "maternity cost",
+        "how much maternity",
+        "how much for maternity",
+        "maternity package"
+      ],
+      "answer": "Maternity Signature is $750 (studio) or $900 (on-location) for 3 hours with 15 images (11 Advanced + 4 Composites). Includes tulle robes, partner/siblings, and unedited proofs. Book here: https://motiontography.com/booking.html",
+      "followups": ["Studio or on-location?", "When is your due date?"],
       "route": {
         "studio_link": "https://app.squareup.com/appointments/buyer/widget/a94ut357bnqq3g/AJ3EW0S0Z46MH",
         "on_location_link": "https://app.squareup.com/appointments/buyer/widget/cmkmvet52g2cad/AJ3EW0S0Z46MH"
