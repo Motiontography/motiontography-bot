@@ -1,6 +1,20 @@
 name = "motiontography-bot"
 main = "worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-06-01"
+
+# Secrets (set via `npx wrangler secret put <NAME>` — NEVER in this file):
+#   OPENAI_API_KEY  — dedicated key for the bot (created during 2026-06 rotation)
+#   ADMIN_TOKEN     — bearer token for /api/admin/* (generate: openssl rand -hex 32)
 
 [vars]
-# Add any environment variables here if needed
+OPENAI_MODEL = "gpt-5.5"
+# OPENAI_FALLBACK_MODEL = ""        # optional second attempt if the primary model errors
+# OPENAI_REASONING_EFFORT = "low"   # used only for reasoning-class models
+ALLOWED_ORIGINS = "https://motiontography.com,https://www.motiontography.com"
+
+# KV namespace for leads, unanswered questions, and rate limiting.
+# Create once with: npx wrangler kv namespace create BOT_STORE
+# then paste the generated id below before deploying.
+[[kv_namespaces]]
+binding = "BOT_STORE"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"

@@ -1,148 +1,62 @@
-# motiontography-bot
+# Motiontography Website Assistant (Bot v3)
 
-KB-driven FAQ bot API for Motiontography with OpenAI GPT-powered intelligent routing.
+Cloudflare Worker powering the chat widget on [motiontography.com](https://motiontography.com).
+Live at `https://motiontography-bot.vanzandt2030.workers.dev`.
 
-## Features
+## How it works
 
-- **Strict KB Grounding**: Only answers from `motiontography_kb.json` — no hallucinations
-- **OpenAI GPT Integration**: Understands varied phrasing (e.g., "What do I wear?" matches wardrobe intent)
-- **Automatic Fallback**: Falls back to keyword matching if OpenAI is unavailable
-- **Privacy Protection**: Never reveals studio address until client has booked/paid
-- **FAQ Candidate Logging**: Unanswered questions logged for review
+- **Grounded answers**: every reply is generated from `motiontography_kb.json` (this repo, fetched from GitHub main with a 5-minute cache). The model may not state facts that aren't in the KB; unknowns escalate to Roger (call/text 757-759-8454 or the contact page).
+- **Model**: OpenAI Responses API. The model is set by the `OPENAI_MODEL` Cloudflare variable (currently `gpt-5.5`) — change it in the dashboard, no deploy needed. Multi-turn memory via `previous_response_id`.
+- **Never goes dark**: if OpenAI is unreachable, a keyword-intent fallback answers from the same KB.
+- **Booking**: all booking intent routes to the live booking app — `https://motiontography-pwa-production.up.railway.app/app/booking`.
+- **Safety**: untrusted-input delimiters, JSON output contract, code-level URL allowlist (the bot can only ever link to motiontography.com properties and the booking app), street-address scrubbing, CORS origin allowlist, per-IP rate limiting (10/min).
+- **Leads**: messages containing contact details are stored in KV (`lead:*`); unanswerable questions are stored as `unanswered:*` for FAQ review.
 
-## Setup
+## Knowledge base pipeline (single source of truth)
 
-### 1. Install dependencies
-```bash
-npm install
+```
+data/source/*.json   (curated facts — edit these, never the generated KB)
+        │
+        ▼
+npm run build:kb     (also pulls LIVE package pricing from the booking app API;
+        │             fails closed if the API is down or data looks wrong)
+        ▼
+motiontography_kb.json            → live bot picks it up ≤5 min after `git push`
+dist/site/motiontography_kb.json  → copy for the static website root
 ```
 
-### 2. Configure environment
-```bash
-cp .env.example .env
-```
-
-Edit `.env` and add your OpenAI API key:
-```
-OPENAI_API_KEY=sk-your-actual-key-here
-OPENAI_MODEL=gpt-4o
-OPENAI_REASONING_EFFORT=high
-```
-
-### 3. Run the server
-```bash
-node server.js
-```
-
-Or use the start script:
-```bash
-./start.sh
-```
+- `npm run check` — warns if booking.html / pricing.html prices drift from the live API.
+- Pricing is **never hand-typed**: the booking app's admin-edited database is the truth.
+- To change packages/prices: edit them in the booking app admin, then `npm run build:kb && git push`.
+- To change policies/FAQ/intents: edit `data/source/*.json`, then `npm run build:kb && git push`.
 
 ## Endpoints
 
-### POST /api/chat
-Send a message and get a response.
+| Endpoint | Auth | Purpose |
+|---|---|---|
+| `GET /api/health` | none | version, KB version, model |
+| `POST /api/chat` | none (rate-limited, origin-allowlisted) | `{message, session_id, previous_response_id?}` → `{ok, reply, response_id, followups, route_url}` |
+| `GET /api/admin/leads` | `Authorization: Bearer <ADMIN_TOKEN>` | captured leads (newest first, `?limit=`) |
+| `GET /api/admin/unanswered` | `Authorization: Bearer <ADMIN_TOKEN>` | unanswered questions for FAQ review |
 
-```bash
-curl -X POST http://localhost:5050/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{"message": "What should I wear?", "session_id": "test-001"}'
+## Deploy
+
+KB-only changes: just `git push` (the worker fetches from GitHub main).
+
+Code changes:
+```sh
+npx wrangler login                                  # once
+npx wrangler kv namespace create BOT_STORE          # once; paste id into wrangler.toml
+npx wrangler secret put OPENAI_API_KEY              # once / on rotation
+npx wrangler secret put ADMIN_TOKEN                 # once; generate with: openssl rand -hex 32
+npx wrangler deploy
 ```
+No wrangler? Paste `worker.js` into the Cloudflare dashboard (Workers → motiontography-bot → Edit code) and set the vars/secrets/KV binding in Settings. Rollback: Workers → Deployments → roll back.
 
-Response:
-```json
-{
-  "ok": true,
-  "session_id": "test-001",
-  "matched_intent_id": "what_to_wear",
-  "match_score": 0.92,
-  "used_openai": true,
-  "escalated": false,
-  "reply": "Great question! Here are some general tips...",
-  "followups": ["What type of session are you booking?"]
-}
-```
+## Tests
 
-### POST /api/reload-kb (admin)
-Reload the knowledge base without restarting.
+`npm test` — 22 unit tests over CORS, validation, URL filtering, address scrubbing, keyword fallback, lead detection, and prompt construction.
 
-```bash
-curl -X POST http://localhost:5050/api/reload-kb \
-  -H "x-admin-token: YOUR_ADMIN_TOKEN"
-```
+## Legacy
 
-### GET /api/health
-Check server status and configuration.
-
-## Acceptance Tests
-
-Test these queries to verify the bot works correctly:
-
-```bash
-# 1. Gift cards (should match gift_cards intent)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "Do you have gift cards?"}'
-
-# 2. Wardrobe (should match what_to_wear intent)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "What do I wear for a maternity shoot?"}'
-
-# 3. Alcohol (should match alcohol_policy and escalate)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "Can I bring champagne?"}'
-
-# 4. Travel (should match travel_outside_area)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "Do you travel to Richmond?"}'
-
-# 5. Portfolio (should match portfolio_examples)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "Can I see more examples?"}'
-
-# 6. Address protection (should NOT reveal exact address)
-curl -X POST http://localhost:5050/api/chat -H "Content-Type: application/json" \
-  -d '{"message": "What is your studio address?"}'
-```
-
-## File Structure
-
-```
-motiontography-bot/
-├── server.js                 # Main Express server
-├── lib/
-│   └── openai.js             # OpenAI API integration
-├── motiontography_kb.json    # Knowledge base (source of truth)
-├── logs/                     # Transcripts & FAQ candidates
-├── .env                      # Local config (gitignored)
-├── .env.example              # Template for .env
-└── README.md
-```
-
-## Adding New Q&As
-
-Edit `motiontography_kb.json` and add to `intents_and_answers`:
-
-```json
-{
-  "id": "my_new_intent",
-  "intent": "description",
-  "triggers": ["keyword1", "keyword2", "phrase to match"],
-  "answer": "Your response here. Include links from official_pages if relevant.",
-  "followups": ["Optional follow-up question?"]
-}
-```
-
-Then reload: `POST /api/reload-kb` or restart the server.
-
-## Environment Variables
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| PORT | No | 5050 | Server port |
-| ADMIN_TOKEN | No | - | Token for admin endpoints |
-| OPENAI_API_KEY | No | - | Enables AI routing (falls back to keywords if not set) |
-| OPENAI_MODEL | No | gpt-4o | OpenAI model to use |
-| OPENAI_REASONING_EFFORT | No | high | Reasoning depth: low/medium/high/xhigh |
-| OPENAI_TEXT_VERBOSITY | No | low | Response length: low/medium/high |
-| OPENAI_MAX_OUTPUT_TOKENS | No | 500 | Max response length |
+`server.js` + `lib/openai.js` are the old Express/local variant (v2), kept for reference. The Worker is the production system.
