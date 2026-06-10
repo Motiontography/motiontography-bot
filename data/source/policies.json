@@ -1,0 +1,68 @@
+{
+  "booking_policies": {
+    "retainers": {
+      "standard_sessions_retainer_usd": 100,
+      "event_retainer_usd": 250,
+      "retainer_applies_to_total": true,
+      "retainer_refundable": false
+    },
+    "rescheduling": {
+      "allowed": true,
+      "limit_times": 1,
+      "must_request_at_least_days_before_session": 3,
+      "new_session_must_be_within_days": 60,
+      "after_60_days_policy": "If the rescheduled date is beyond 60 days, the retainer is forfeited and a new retainer is required to book again."
+    },
+    "cancellations": {
+      "cancel_within_days_of_session_forfeits_retainer": 3,
+      "paid_in_full_refund_rule": "If paid in full and cancel, refund is issued minus the $100 cancellation fee/retainer."
+    },
+    "no_show": {
+      "definition": "Client does not arrive and does not contact Motiontography.",
+      "policy": "All payments made are forfeited and a new retainer is required to book again."
+    },
+    "weather": {
+      "policy": "If weather prevents the session, we can reschedule without penalties. For on-location sessions, the client may choose to switch to studio if preferred."
+    },
+    "proof_gallery": {
+      "delivery_window_hours": 24,
+      "selection_window_months": 12,
+      "selection_submission_rule": "Client must send ONE message (text/email/DM) with the full list of selected file names. Do not send one-by-one messages."
+    },
+    "file_types": {
+      "unedited_delivery_format": "JPEG",
+      "camera_raw_default": "Not delivered by default.",
+      "raw_by_request_policy": "If a client requests camera RAW files, the client must provide their own storage drive. Motiontography will transfer the RAW files to the drive; transfer time may take up to ~2 hours depending on volume."
+    }
+  },
+  "client_experience_guidelines": {
+    "entourage_recommendation": "Because the studio is small, keep your support group around 3 people when possible.",
+    "hair_and_makeup": "Not provided. If you want recommendations, contact Roger directly.",
+    "pets": "Allowed only if the pet is part of the shoot and someone is available to monitor the pet.",
+    "split_session_rule": "Studio + On-Location cannot be split into one session. If client wants both, they must book two separate sessions.",
+    "extra_people_fee_rule": "Extra people fee applies only when the client exceeds the included headcount in their package."
+  },
+  "tone_and_messaging_rules": {
+    "language": "en",
+    "friendly": true,
+    "congratulations": {
+      "maternity": {
+        "enabled": true,
+        "script": "Wow! Congratulations 😊 When is your due date?",
+        "follow_up_questions": [
+          "Is there anything specific you'd love to do for your maternity session?"
+        ]
+      },
+      "special_occasion": {
+        "enabled": true,
+        "examples": [
+          "birthday",
+          "graduation",
+          "baby_shower",
+          "anniversary"
+        ],
+        "script": "Ahhh nice — congratulations on your special occasion 😊 What are we celebrating, and what date is it?"
+      }
+    }
+  }
+}

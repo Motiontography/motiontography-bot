@@ -1,0 +1,9 @@
+{
+  "booking_app_url": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "packages_bridge_page": "https://motiontography.com/booking.html",
+  "pricing_page": "https://motiontography.com/pricing.html",
+  "contact_page": "https://motiontography.com/contact.html",
+  "website": "https://motiontography.com",
+  "phone": "+1-757-759-8454",
+  "admin_note": "The booking/admin app admin route is private. Never reference it in any public output."
+}

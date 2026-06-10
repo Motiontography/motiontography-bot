@@ -1,0 +1,38 @@
+{
+  "mini_studio_portrait": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "classic_portrait": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "on_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "deluxe_portrait": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "on_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "signature_fine_art": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "on_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "maternity_signature": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "on_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "composite_creation_session": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "milk_bath_session": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "newborn_lifestyle": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "in_home_or_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "newborn_fine_art": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "kids_little_moments_mini": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "kids_playtime_portrait": {
+    "studio": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "on_location": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "milestone_storybook_bundle": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "event_coverage_photography": {
+    "pay_250_retainer": "https://motiontography-pwa-production.up.railway.app/app/booking",
+    "pay_950_full": "https://motiontography-pwa-production.up.railway.app/app/booking"
+  },
+  "pay_100_retainer": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "custom_booking_builder": "https://motiontography-pwa-production.up.railway.app/app/booking"
+}

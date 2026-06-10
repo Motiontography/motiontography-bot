@@ -1,10 +1,12 @@
 {
   "name": "motiontography-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.1.0",
+  "description": "Motiontography website assistant — Cloudflare Worker + generated knowledge base",
+  "main": "worker.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:kb": "node scripts/build-kb.mjs",
+    "check": "node scripts/check-consistency.mjs",
+    "test": "node --test tests/"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,8 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.99.0"
   }
 }

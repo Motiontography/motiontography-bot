@@ -1,0 +1,14 @@
+{
+  "booking_page_url": "https://motiontography-pwa-production.up.railway.app/app/booking",
+  "editing_examples_url": "https://motiontography.com/editing-examples.html",
+  "composites_info_url": "https://motiontography.com/composites.html",
+  "contact_page_url": "https://motiontography.com/contact.html",
+  "maternity_page_url": "https://motiontography.com/maternity.html",
+  "boudoir_page_url": "https://motiontography.com/boudoir.html",
+  "wedding_page_url": "https://motiontography.com/wedding.html",
+  "on_location_page_url": "https://motiontography.com/onlocation.html",
+  "about_page_url": "https://motiontography.com/about.html",
+  "portfolio_page_url": "https://motiontography.com/portfolio.html",
+  "packages_info_url": "https://motiontography.com/booking.html",
+  "pricing_page_url": "https://motiontography.com/pricing.html"
+}

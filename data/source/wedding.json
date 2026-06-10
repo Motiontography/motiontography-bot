@@ -1,0 +1,39 @@
+{
+  "wedding_day_photography": {
+    "price_usd": 3500,
+    "hours": "up to 10 hours",
+    "includes": [
+      "Getting ready through reception",
+      "Ceremony coverage",
+      "Couple portraits",
+      "Family formals",
+      "Reception highlights and details",
+      "Professional editing",
+      "Private online gallery with downloads and print release"
+    ],
+    "turnaround_days": 14,
+    "deposit_usd": 500,
+    "deposit_note": "Non-refundable, secures your date",
+    "balance_due": "2 weeks before wedding"
+  },
+  "pre_wedding_studio_session": {
+    "price_usd": 600,
+    "duration_hours": 3,
+    "includes": [
+      "15 fully retouched images",
+      "Multiple outfits and backdrops",
+      "Magazine-style fine-art portraits"
+    ],
+    "turnaround_days": 7
+  },
+  "wedding_videography": {
+    "price_usd": 5500,
+    "note": "Photography and videography are separate, dedicated services"
+  },
+  "add_ons": {
+    "signature_fine_art_portrait_on_location_usd": 750,
+    "additional_hour_usd": 150,
+    "cultural_multi_day_coverage_per_day_usd": 1000
+  },
+  "booking_recommendation": "Book 6-12 months in advance, especially May-October"
+}

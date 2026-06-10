@@ -1,0 +1,54 @@
+{
+  "bot_guardrails": {
+    "no_hallucination_rule": "If the answer is not explicitly supported by this KB, the bot must say it will connect the client with Roger and log the question as NEW_FAQ_CANDIDATE.",
+    "escalation_contact": {
+      "phone": "+1-757-759-8454",
+      "instruction": "If anything is urgent, time-sensitive, or not covered here, contact Roger directly."
+    },
+    "privacy_and_data_minimization": {
+      "collect_only_what_client_voluntarily_provides": true,
+      "do_not_collect_payment_details": true,
+      "do_not_collect_sensitive_personal_data": true,
+      "subtle_info_gathering_allowed_fields": [
+        "first_name",
+        "session_type",
+        "session_date_preference",
+        "city",
+        "studio_or_location",
+        "budget_range",
+        "edit_level_preference",
+        "contact_method"
+      ]
+    }
+  },
+  "learning_and_review_workflow": {
+    "log_every_conversation": true,
+    "store_transcript_fields": [
+      "timestamp",
+      "channel",
+      "client_handle_or_number_if_provided",
+      "messages",
+      "detected_intent",
+      "packages_recommended",
+      "links_shared",
+      "escalated_to_roger"
+    ],
+    "new_faq_queue": {
+      "enabled": true,
+      "queue_name": "NEW_FAQ_CANDIDATES",
+      "store_when": [
+        "bot_unsure",
+        "client_unhappy",
+        "policy_edge_case",
+        "new_request_type"
+      ],
+      "required_fields": [
+        "question",
+        "context",
+        "client_contact_if_provided",
+        "bot_reply_used",
+        "recommended_next_answer_draft"
+      ]
+    }
+  }
+}

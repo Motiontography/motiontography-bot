@@ -1,0 +1,267 @@
+[
+  {
+    "id": "mini_studio_portrait",
+    "name": "Mini Studio Portrait",
+    "price_usd": 199,
+    "duration_minutes": 30,
+    "location_options": [
+      "studio_only"
+    ],
+    "included_people": 1,
+    "outfits": "1 outfit",
+    "backdrops": "1 simple backdrop",
+    "included_final_images": 2,
+    "included_edit_level": "standard",
+    "turnaround_finals_days": 2,
+    "notes": [
+      "No composite add-ons for this mini session.",
+      "Private proofing gallery."
+    ]
+  },
+  {
+    "id": "classic_portrait",
+    "name": "Classic Portrait",
+    "price_usd": {
+      "studio": 250,
+      "on_location": 400
+    },
+    "duration_minutes": 60,
+    "location_options": [
+      "studio",
+      "on_location"
+    ],
+    "included_people": 1,
+    "extra_people_policy": "Allowed for an extra fee per person once the included headcount is exceeded.",
+    "included_final_images": 5,
+    "included_edit_level": "standard",
+    "turnaround_finals_days": 5,
+    "notes": [
+      "On-location price includes travel within the 7 Cities."
+    ]
+  },
+  {
+    "id": "deluxe_portrait",
+    "name": "Deluxe Portrait",
+    "price_usd": {
+      "studio": 400,
+      "on_location": 550
+    },
+    "duration_minutes": 120,
+    "location_options": [
+      "studio",
+      "on_location"
+    ],
+    "included_people": {
+      "studio": 4,
+      "on_location": 6
+    },
+    "included_final_images": 10,
+    "included_edit_level": "standard",
+    "turnaround_finals_days": 5,
+    "notes": []
+  },
+  {
+    "id": "signature_fine_art",
+    "name": "Signature Fine-Art",
+    "price_usd": {
+      "studio": 600,
+      "on_location": 750
+    },
+    "duration_minutes": 180,
+    "location_options": [
+      "studio",
+      "on_location"
+    ],
+    "included_people": "Varies by concept; confirm during consult.",
+    "included_final_images": 15,
+    "included_edit_level": "advanced",
+    "turnaround_finals_days": 7,
+    "notes": [
+      "Includes unedited proofs (optional)."
+    ]
+  },
+  {
+    "id": "maternity_signature",
+    "name": "Maternity Signature",
+    "price_usd": {
+      "studio": 750,
+      "on_location": 900
+    },
+    "duration_minutes": 180,
+    "location_options": [
+      "studio",
+      "on_location"
+    ],
+    "included_people": "Partner and siblings included.",
+    "included_final_images": 15,
+    "included_breakdown": {
+      "advanced_images": 11,
+      "composite_images": 4
+    },
+    "included_edit_level": "mixed_advanced_and_composite",
+    "turnaround_finals_days": 10,
+    "notes": [
+      "Tulle maternity robes included.",
+      "Golden hour/sunset scheduling for on-location.",
+      "Includes unedited proofs."
+    ]
+  },
+  {
+    "id": "composite_creation_session",
+    "name": "Composite Creation Session",
+    "price_usd": 350,
+    "duration_minutes": 90,
+    "location_options": [
+      "studio_only"
+    ],
+    "included_final_images": 2,
+    "included_edit_level": "creative_composite",
+    "turnaround_finals_days": 5,
+    "notes": [
+      "Dedicated session planned for the final concept.",
+      "Extra composite images available at add-on rate."
+    ]
+  },
+  {
+    "id": "milk_bath_session",
+    "name": "Milk Bath Session",
+    "price_usd": 300,
+    "duration_minutes": 120,
+    "location_options": [
+      "studio_only"
+    ],
+    "included_final_images": 6,
+    "included_edit_level": "standard",
+    "turnaround_finals_days_range": [
+      5,
+      7
+    ],
+    "notes": [
+      "Soft, dreamy milk bath images with floral styling."
+    ]
+  },
+  {
+    "id": "newborn_lifestyle",
+    "name": "Newborn Lifestyle",
+    "price_usd": {
+      "studio": 450,
+      "in_home_or_location": 600
+    },
+    "duration_minutes": 90,
+    "location_options": [
+      "studio",
+      "in_home_or_location"
+    ],
+    "included_people": "Parents & siblings included.",
+    "included_final_images": 20,
+    "included_edit_level": "standard",
+    "turnaround_finals_days": 7,
+    "notes": [
+      "Baby up to 8 weeks old."
+    ]
+  },
+  {
+    "id": "newborn_fine_art",
+    "name": "Newborn Fine-Art",
+    "price_usd": 650,
+    "duration_minutes_range": [
+      150,
+      180
+    ],
+    "location_options": [
+      "studio_only"
+    ],
+    "included_people": "Family/sibling add-ons included.",
+    "included_final_images": 15,
+    "included_edit_level": "advanced",
+    "turnaround_finals_days": 10,
+    "notes": [
+      "Ideal age: 5–14 days.",
+      "Includes unedited proofs (optional)."
+    ]
+  },
+  {
+    "id": "kids_little_moments_mini",
+    "name": "Little Moments Mini (Kids)",
+    "price_usd": 325,
+    "duration_minutes_range": [
+      30,
+      35
+    ],
+    "location_options": [
+      "studio_only"
+    ],
+    "included_people": "1 child (parent may join for 1–2 poses).",
+    "included_final_images": 4,
+    "included_edit_level": "standard",
+    "turnaround_finals_days_range": [
+      5,
+      7
+    ],
+    "notes": [
+      "Max 2 extra images allowed at add-on rate."
+    ]
+  },
+  {
+    "id": "kids_playtime_portrait",
+    "name": "Playtime Portrait",
+    "price_usd": {
+      "studio": 450,
+      "on_location": 600
+    },
+    "duration_minutes_range": [
+      60,
+      75
+    ],
+    "location_options": [
+      "studio",
+      "on_location"
+    ],
+    "included_people": "Parent & sibling welcome.",
+    "included_final_images": 8,
+    "included_edit_level": "standard",
+    "included_bonus": [
+      "includes_1_creative_composite"
+    ],
+    "notes": [
+      "On-location includes travel within the 7 Cities."
+    ]
+  },
+  {
+    "id": "milestone_storybook_bundle",
+    "name": "Milestone Storybook Bundle",
+    "price_usd": 800,
+    "sessions_included": 3,
+    "duration_minutes_per_session_range": [
+      30,
+      35
+    ],
+    "location_options": [
+      "studio_only"
+    ],
+    "included_final_images_per_session": 6,
+    "included_edit_level": "standard",
+    "included_bonus": [
+      "includes_1_creative_composite_per_session"
+    ],
+    "notes": [
+      "Use within 12 months."
+    ]
+  },
+  {
+    "id": "event_coverage_photography",
+    "name": "Event Coverage (Photography)",
+    "price_usd": 950,
+    "duration_hours": 4,
+    "location_options": [
+      "on_location_only"
+    ],
+    "included_images_policy": "All images receive standard edits, plus 25 enhanced edits.",
+    "included_bonus": [
+      "5_sneak_peek_edits_48hr"
+    ],
+    "notes": [
+      "Event Coverage uses a separate retainer policy."
+    ]
+  }
+]

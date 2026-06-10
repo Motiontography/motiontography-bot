@@ -1,0 +1,34 @@
+{
+  "beach_locations": [
+    "Virginia Beach Oceanfront",
+    "Sandbridge",
+    "First Landing State Park",
+    "Outlook Beach"
+  ],
+  "park_locations": [
+    "Norfolk Botanical Garden",
+    "Red Wing Park",
+    "Oak Grove Lake Park"
+  ],
+  "urban_locations": [
+    "Freemason District",
+    "NEON District Murals",
+    "Olde Towne Portsmouth",
+    "Downtown Suffolk"
+  ],
+  "lighting_options": [
+    "Golden hour (sunrise/sunset) for warm, soft light",
+    "Overcast days provide even lighting"
+  ],
+  "weather_policy": "If heavy rain or strong winds are forecast, we will reschedule at no additional cost",
+  "client_responsibilities": [
+    "Venue admission fees for all attendees + photographer",
+    "Required photography permits",
+    "Private property access/permissions"
+  ],
+  "included_in_fee": [
+    "Travel time/mileage within Hampton Roads (7 cities)",
+    "Standard tunnel tolls and street parking",
+    "Mobile lighting setup/breakdown"
+  ]
+}

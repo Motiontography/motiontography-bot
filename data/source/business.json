@@ -1,0 +1,74 @@
+{
+  "name": "Motiontography LLC",
+  "owner_name": "Roger Mitchell",
+  "owner_background": "Award-winning photographer with 10+ years experience. Started at age 16 after saving money from a gas station job to buy first camera. Has photographed notable clients including Ari Lennox, SWV members, Clipse members, K. Michelle, Tim Reid, and Daphne Maxwell Reid.",
+  "equipment": [
+    "Sony A1",
+    "Hasselblad X2D",
+    "Sony A7S III"
+  ],
+  "website": "https://motiontography.com/",
+  "primary_phone": "+1-757-759-8454",
+  "hours": "9:00 AM - 11:00 PM, 7 days a week",
+  "rating": "5.0 stars (36+ reviews)",
+  "service_area": {
+    "region": "Hampton Roads, VA",
+    "cities_core": [
+      "Suffolk",
+      "Chesapeake",
+      "Portsmouth",
+      "Norfolk",
+      "Virginia Beach",
+      "Hampton",
+      "Newport News"
+    ],
+    "also_serves": [
+      "Williamsburg"
+    ],
+    "outside_core_travel_fee": "1.25 USD per mile (round-trip)"
+  },
+  "studio": {
+    "city": "Suffolk, VA",
+    "address": "Private Suffolk, VA studio — exact address is shared after your booking is confirmed",
+    "address_sharing_rule": "Do not share the exact address until AFTER the client has booked and paid the retainer (or paid in full). You may say: 'Studio in Suffolk, VA.'",
+    "appointments_only": true,
+    "bathroom_available": true,
+    "private_changing_area_available": true,
+    "parking_notes": "Parking is generally easy. Please avoid bringing multiple cars when possible (2 cars ideal; 3 max).",
+    "safe_comfortable_environment": true
+  },
+  "communication_channels": {
+    "allowed": [
+      "text",
+      "phone_calls",
+      "email",
+      "instagram_dm"
+    ],
+    "preferred_short_answer": "Text and phone calls are welcome.",
+    "social_media": [
+      "Instagram",
+      "Facebook",
+      "YouTube",
+      "LinkedIn"
+    ]
+  },
+  "services_offered": [
+    "Fine art maternity photography",
+    "Boudoir photography",
+    "Boudoir videography",
+    "Wedding photography",
+    "Wedding videography",
+    "Headshot photography (corporate & acting)",
+    "On-location portrait sessions",
+    "Creative composite/digital art",
+    "Newborn photography",
+    "Kids/children photography",
+    "Milestone sessions",
+    "Milk bath sessions",
+    "Event coverage photography",
+    "Event coverage videography",
+    "Product photography",
+    "Seasonal/holiday sessions"
+  ],
+  "price_range": "$199 - $5,500"
+}

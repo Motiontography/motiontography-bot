@@ -1,0 +1,38 @@
+{
+  "standard": {
+    "summary_focus": "Polished & Natural.",
+    "includes": [
+      "color_correction",
+      "skin_smoothing",
+      "light_blemish_touch_up",
+      "teeth_whitening_and_eye_brightening",
+      "exposure_balancing"
+    ],
+    "not_included_by_default": [
+      "body_contouring",
+      "complex_object_removal",
+      "background_replacement",
+      "fantasy_elements"
+    ]
+  },
+  "advanced": {
+    "summary_focus": "Magazine-Quality Refinement.",
+    "includes_everything_in_standard": true,
+    "additional_includes": [
+      "high_end_texture_retouching",
+      "optional_body_contouring",
+      "stretch_mark_reduction_on_request",
+      "complex_object_removal"
+    ]
+  },
+  "creative_composite": {
+    "summary_focus": "Unique Photographic Artwork.",
+    "includes_everything_in_advanced": true,
+    "additional_includes": [
+      "background_replacements",
+      "digital_elements_fantasy_style",
+      "painterly_effects_and_blending",
+      "custom_lighting_and_color_grading"
+    ]
+  }
+}
