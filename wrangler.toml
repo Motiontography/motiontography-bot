@@ -8,13 +8,11 @@ compatibility_date = "2026-06-01"
 
 [vars]
 OPENAI_MODEL = "gpt-5.5"
-# OPENAI_FALLBACK_MODEL = ""        # optional second attempt if the primary model errors
+OPENAI_FALLBACK_MODEL = "gpt-5.2-chat-latest"  # second attempt if the primary model errors
 # OPENAI_REASONING_EFFORT = "low"   # used only for reasoning-class models
 ALLOWED_ORIGINS = "https://motiontography.com,https://www.motiontography.com"
 
 # KV namespace for leads, unanswered questions, and rate limiting.
-# Create once with: npx wrangler kv namespace create BOT_STORE
-# then paste the generated id below before deploying.
 [[kv_namespaces]]
 binding = "BOT_STORE"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "ae90b634b5634de7962f81b222871154"
