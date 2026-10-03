@@ -1,62 +1,23 @@
-# Motiontography Website Assistant (Bot v3)
+# Motiontography website chat
 
-Cloudflare Worker powering the chat widget on [motiontography.com](https://motiontography.com).
-Live at `https://motiontography-bot.vanzandt2030.workers.dev`.
+The Cloudflare worker keeps the existing widget contract, origin checks, rate limits, leads and unanswered-question inbox. Answers now come from the authenticated booking-app `/api/website-chat` endpoint using the existing worker `ADMIN_TOKEN` / app `BOT_ADMIN_TOKEN` pair. No new secret is required.
 
-## How it works
+The booking app uses GPT-6 Luna with current package and recommendation-rule records, canonical editing policy, bounded signed conversation history, no provider-side conversation storage, a 12-second model deadline, and the existing essential-client-service spending reserve. Unknown holiday sets, dates, existing purchases and special arrangements go to Roger. It never books, charges, or promises a callback. A gateway outage returns contact options and stores the question for review; it never falls back to old prices in the generated June knowledge base.
 
-- **Grounded answers**: every reply is generated from `motiontography_kb.json` (this repo, fetched from GitHub main with a 5-minute cache). The model may not state facts that aren't in the KB; unknowns escalate to Roger (call/text 757-759-8454 or the contact page).
-- **Model**: OpenAI Responses API. The model is set by the `OPENAI_MODEL` Cloudflare variable (currently `gpt-5.5`) — change it in the dashboard, no deploy needed. Multi-turn memory via `previous_response_id`.
-- **Never goes dark**: if OpenAI is unreachable, a keyword-intent fallback answers from the same KB.
-- **Booking**: all booking intent routes to the live booking app — `https://motiontography-pwa-production.up.railway.app/app/booking`.
-- **Safety**: untrusted-input delimiters, JSON output contract, code-level URL allowlist (the bot can only ever link to motiontography.com properties and the booking app), street-address scrubbing, CORS origin allowlist, per-IP rate limiting (10/min).
-- **Leads**: messages containing contact details are stored in KV (`lead:*`); unanswerable questions are stored as `unanswered:*` for FAQ review.
+Deploy the tested booking-app endpoint first, then `npx wrangler deploy` here, then the tested marketing widget. Verify `/api/health` and a Christmas question plus a follow-up. Roll back the worker to its prior deployment if the gateway is unavailable. Existing generated KB files and legacy helper exports remain for rollback; the chat handler does not use them.
 
-## Knowledge base pipeline (single source of truth)
+`npm test` covers the gateway, failure behavior, CORS, validation and legacy helpers. Credentials must never appear in test output.
 
-```
-data/source/*.json   (curated facts — edit these, never the generated KB)
-        │
-        ▼
-npm run build:kb     (also pulls LIVE package pricing from the booking app API;
-        │             fails closed if the API is down or data looks wrong)
-        ▼
-motiontography_kb.json            → live bot picks it up ≤5 min after `git push`
-dist/site/motiontography_kb.json  → copy for the static website root
-```
+## Deployment account record (verified 2026-10-03)
 
-- `npm run check` — warns if booking.html / pricing.html prices drift from the live API.
-- Pricing is **never hand-typed**: the booking app's admin-edited database is the truth.
-- To change packages/prices: edit them in the booking app admin, then `npm run build:kb && git push`.
-- To change policies/FAQ/intents: edit `data/source/*.json`, then `npm run build:kb && git push`.
+- Cloudflare account ID: `e8fa03c1fd0bcf7273c0c0a85c314f58`.
+- Worker name: `motiontography-bot`.
+- Workers subdomain: `vanzandt2030.workers.dev` (a subdomain, not proof of a login email).
+- Production: https://motiontography-bot.vanzandt2030.workers.dev
+- Dashboard: https://dash.cloudflare.com/e8fa03c1fd0bcf7273c0c0a85c314f58/workers/services/view/motiontography-bot/production
+- Connected repository: `Motiontography/motiontography-bot`. Cloudflare Workers Builds publishes branch previews; verify the main-branch deployment result and production health before claiming release.
+- Owning login email: **not yet verified**. Do not infer an email from the Workers subdomain or Git commit author.
+- The `fstop@motiontography.com` login inspected on 2026-10-03 exposed only account `7fbf5f247ae98cc4f80df30c2d64d32a`, which could not access the Worker above. Do not deploy a duplicate Worker there.
+- Existing CLI OAuth session was expired. No new Wrangler access was granted in that other account.
 
-## Endpoints
-
-| Endpoint | Auth | Purpose |
-|---|---|---|
-| `GET /api/health` | none | version, KB version, model |
-| `POST /api/chat` | none (rate-limited, origin-allowlisted) | `{message, session_id, previous_response_id?}` → `{ok, reply, response_id, followups, route_url}` |
-| `GET /api/admin/leads` | `Authorization: Bearer <ADMIN_TOKEN>` | captured leads (newest first, `?limit=`) |
-| `GET /api/admin/unanswered` | `Authorization: Bearer <ADMIN_TOKEN>` | unanswered questions for FAQ review |
-
-## Deploy
-
-KB-only changes: just `git push` (the worker fetches from GitHub main).
-
-Code changes:
-```sh
-npx wrangler login                                  # once
-npx wrangler kv namespace create BOT_STORE          # once; paste id into wrangler.toml
-npx wrangler secret put OPENAI_API_KEY              # once / on rotation
-npx wrangler secret put ADMIN_TOKEN                 # once; generate with: openssl rand -hex 32
-npx wrangler deploy
-```
-No wrangler? Paste `worker.js` into the Cloudflare dashboard (Workers → motiontography-bot → Edit code) and set the vars/secrets/KV binding in Settings. Rollback: Workers → Deployments → roll back.
-
-## Tests
-
-`npm test` — 22 unit tests over CORS, validation, URL filtering, address scrubbing, keyword fallback, lead detection, and prompt construction.
-
-## Legacy
-
-`server.js` + `lib/openai.js` are the old Express/local variant (v2), kept for reference. The Worker is the production system.
+Record future verified login identity here after checking the account ID. Never store passwords, API tokens, OAuth codes, or refresh tokens in project documentation.
