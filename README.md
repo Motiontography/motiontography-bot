@@ -16,8 +16,9 @@ Deploy the tested booking-app endpoint first, then `npx wrangler deploy` here, t
 - Production: https://motiontography-bot.vanzandt2030.workers.dev
 - Dashboard: https://dash.cloudflare.com/e8fa03c1fd0bcf7273c0c0a85c314f58/workers/services/view/motiontography-bot/production
 - Connected repository: `Motiontography/motiontography-bot`. Cloudflare Workers Builds publishes branch previews; verify the main-branch deployment result and production health before claiming release.
-- Owning login email: **not yet verified**. Do not infer an email from the Workers subdomain or Git commit author.
-- The `fstop@motiontography.com` login inspected on 2026-10-03 exposed only account `7fbf5f247ae98cc4f80df30c2d64d32a`, which could not access the Worker above. Do not deploy a duplicate Worker there.
+- Verified account display name: **Vanzandt2030@gmail.com's Account**.
+- Verified signed-in user: **fstop@motiontography.com**. This user can access the account above after selecting it in the account switcher; verified against the actual Worker dashboard and deployment history on 2026-10-03.
+- The separate **Fstop@motiontography.com's Account**, ID `7fbf5f247ae98cc4f80df30c2d64d32a`, is not the Worker host. Select **Vanzandt2030@gmail.com's Account**; do not confuse the signed-in user with the selected account or deploy a duplicate Worker.
 - Existing CLI OAuth session was expired. No new Wrangler access was granted in that other account.
 
-Record future verified login identity here after checking the account ID. Never store passwords, API tokens, OAuth codes, or refresh tokens in project documentation.
+Recheck the selected account ID before future deployments. Never store passwords, API tokens, OAuth codes, or refresh tokens in project documentation.
