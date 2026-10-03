@@ -7,8 +7,8 @@ compatibility_date = "2026-06-01"
 #   ADMIN_TOKEN     — bearer token for /api/admin/* (generate: openssl rand -hex 32)
 
 [vars]
-OPENAI_MODEL = "gpt-5.5"
-OPENAI_FALLBACK_MODEL = "gpt-5.2-chat-latest"  # second attempt if the primary model errors
+OPENAI_MODEL = "gpt-6-luna"
+
 # OPENAI_REASONING_EFFORT = "low"   # used only for reasoning-class models
 ALLOWED_ORIGINS = "https://motiontography.com,https://www.motiontography.com"
 

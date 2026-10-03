@@ -1,5 +1,7 @@
 /**
- * Motiontography Website Assistant — Cloudflare Worker v3
+ * Motiontography Website Assistant — Cloudflare Worker v3.1
+ * Current answers are delegated to the booking app; the legacy helpers below
+ * are retained for rollback only and are not called by handleChat.
  *
  * Single-file by design so it can be paste-deployed from the Cloudflare
  * dashboard if wrangler auth is unavailable.
@@ -21,7 +23,7 @@
  *   -> {ok, session_id, reply, response_id?, followups?, route_url?, ...diagnostics}
  */
 
-const VERSION = "3.0.0";
+const VERSION = "3.1.0";
 const KB_URL = "https://raw.githubusercontent.com/Motiontography/motiontography-bot/main/motiontography_kb.json";
 const OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses";
 const DEFAULT_MODEL = "gpt-5.5";
@@ -128,9 +130,9 @@ async function checkRateLimit(request, env) {
 
 function validateChatBody(body) {
   if (!body || typeof body !== "object") return "Invalid JSON body";
-  if (!body.message || typeof body.message !== "string") return "message (string) is required";
+  if (typeof body.message !== "string" || !body.message.trim()) return "message (string) is required";
   if (body.message.length > MAX_MESSAGE_CHARS) return `message too long (max ${MAX_MESSAGE_CHARS} chars)`;
-  if (body.previous_response_id && !/^resp_[A-Za-z0-9_-]+$/.test(body.previous_response_id)) {
+  if (body.previous_response_id && (typeof body.previous_response_id !== "string" || body.previous_response_id.length > 24000 || !/^resp_[A-Za-z0-9_-]+$/.test(body.previous_response_id))) {
     return "invalid previous_response_id";
   }
   return null;
@@ -386,28 +388,33 @@ async function handleChat(request, env, ctx) {
   const invalid = validateChatBody(body);
   if (invalid) return json({ ok: false, error: invalid }, 400, request, env);
 
-  const kb = await loadKB();
+  const kb = EMERGENCY_KB;
   const message = body.message;
-  const session_id = body.session_id || crypto.randomUUID();
-  const bookingUrl = kb.booking_destination || BOOKING_URL_FALLBACK;
-
+  const session_id = typeof body.session_id === "string" ? body.session_id.slice(0,100) : crypto.randomUUID();
+  const bookingUrl = BOOKING_URL_FALLBACK;
   let result;
-  let used_openai = false;
-  let response_id = null;
-  let model_used = null;
-
-  if (env.OPENAI_API_KEY) {
-    try {
-      const ai = await askOpenAI(message, kb, env, body.previous_response_id || null);
-      used_openai = true;
-      response_id = ai.response_id;
-      model_used = ai.model_used;
-      result = ai;
-    } catch {
-      // fall through to keyword fallback
-    }
+  let used_openai = false, response_id = null, model_used = null;
+  try {
+    if (!env.ADMIN_TOKEN) throw new Error("Missing chat gateway authentication");
+    const upstream = await fetch("https://motiontography-pwa-production.up.railway.app/api/website-chat", {
+      method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${env.ADMIN_TOKEN}` },
+      body: JSON.stringify({ message, previous_response_id: body.previous_response_id || null }),
+      signal: AbortSignal.timeout(16000),
+    });
+    if (!upstream.ok) throw new Error(`Chat gateway ${upstream.status}`);
+    const answer = await upstream.json();
+    if (!answer.ok || typeof answer.reply !== "string" || !answer.reply.trim()) throw new Error("Empty chat gateway answer");
+    result = { ...answer, wants_booking: Boolean(answer.route_url) };
+    used_openai = answer.used_openai === true;
+    response_id = answer.response_id || null;
+    model_used = answer.model_used || null;
+  } catch (err) {
+    console.error("[chat-gateway]", err.message);
+    result = {
+      reply: "I couldn't check the current studio information just now. Your question is still in this chat. Please call or text Roger at 757-759-8454, or view current packages at https://motiontography.com/app/booking. Nothing has been booked or charged.",
+      followups: [], wants_booking: false, escalated: true, intent_id: null, confidence: 0,
+    };
   }
-  if (!result) result = keywordAnswer(message, kb);
 
   const reply = sanitizeReply(result.reply, kb);
   const route_url = result.wants_booking ? bookingUrl : null;
@@ -442,16 +449,7 @@ async function handleChat(request, env, ctx) {
 }
 
 async function handleHealth(request, env) {
-  const kb = await loadKB();
-  return json({
-    ok: true,
-    version: VERSION,
-    kb_version: kb.kb_version,
-    last_updated_local: kb.last_updated_local,
-    openai_enabled: Boolean(env.OPENAI_API_KEY),
-    model: env.OPENAI_MODEL || DEFAULT_MODEL,
-    kv_enabled: Boolean(env.BOT_STORE),
-  }, 200, request, env);
+  return json({ ok: true, version: VERSION, model: "gpt-6-luna", answer_source: "booking-app-current-records", gateway_configured: Boolean(env.ADMIN_TOKEN), kv_enabled: Boolean(env.BOT_STORE) }, 200, request, env);
 }
 
 function requireAdmin(request, env) {
